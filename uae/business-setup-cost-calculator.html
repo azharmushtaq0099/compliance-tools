@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UAE Business Setup Cost Calculator 2024 — Full Cost Breakdown by Free Zone</title>
+<meta name="description" content="Get a full itemised cost breakdown for setting up a business in the UAE. Select your free zone, number of visas and office type to see license fees, visa costs, government fees and first-year total.">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/uae/business-setup-cost-calculator">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"UAE Business Setup Cost Calculator 2024","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Calculate the full cost of setting up a business in the UAE. Select a free zone, visa count and office type to get an itemised breakdown of license fees, visa costs, office costs and total first-year investment.","url":"https://YOUR-DOMAIN.com/uae/business-setup-cost-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"AED"},"inLanguage":"en","dateModified":"2026-09-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is included in UAE free zone setup costs?","acceptedAnswer":{"@type":"Answer","text":"UAE free zone setup costs typically include: the trade license fee (AED 5,750–150,000 depending on free zone), company registration and admin fees (AED 1,500–8,000), establishment card (AED 1,500–2,000), office or desk fee (AED 2,000–35,000), residence visa costs per person (AED 4,500–6,500 each, covering medical, Emirates ID and stamping), and PRO/document processing fees. First-year totals range from around AED 15,000 for a budget free zone with one visa to AED 200,000+ for premium free zones with multiple visas."}},{"@type":"Question","name":"How accurate are the UAE free zone cost estimates?","acceptedAnswer":{"@type":"Answer","text":"The estimates are based on published 2026 free zone tariffs and typical market rates. They are indicative only — actual costs can vary by 10–30% depending on activity type, current promotions, agent fees, and whether bundled packages are available. Always get a formal quote from the free zone authority or a registered formation agent before committing."}},{"@type":"Question","name":"What additional costs should I budget for when setting up in a UAE free zone?","acceptedAnswer":{"@type":"Answer","text":"Beyond the core setup costs, budget for: bank account opening and minimum balance requirements (AED 25,000–100,000 at most UAE banks), annual audit fees if applicable (AED 3,000–8,000), accounting and bookkeeping (AED 3,000–6,000/year), health insurance for visa holders (AED 1,500–5,000/person/year), and corporate tax registration if annual revenue exceeds AED 375,000."}},{"@type":"Question","name":"What is a UAE establishment card and how much does it cost?","acceptedAnswer":{"@type":"Answer","text":"An establishment card (also called an e-channel establishment card) is required to process employee residence visas in the UAE. Issued by MOHRE (Ministry of Human Resources and Emiratisation), it costs approximately AED 1,500–2,000 and must be renewed annually. It is mandatory for any UAE company that intends to sponsor employee visas."}},{"@type":"Question","name":"Which UAE free zone is the cheapest to set up in?","acceptedAnswer":{"@type":"Answer","text":"Fujairah Creative City is currently the cheapest UAE free zone with license fees starting from AED 5,750. Ajman Free Zone starts from AED 6,000. RAKEZ in Ras Al Khaimah starts from AED 7,500. For Dubai specifically, IFZA is the most cost-effective option starting from AED 12,900. Budget free zones are based outside Dubai but are fully legitimate and MOHRE-registered for standard business activities."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+<style>
+.cost-result-wrap { display: none; margin-top: 24px; }
+.cost-result-wrap.visible { display: block; }
+.cost-total-row td { font-weight: 800; font-family: var(--mono); font-size: 15px; border-top: 2px solid var(--border); }
+.cost-range { font-family: var(--mono); font-weight: 600; }
+.cost-note { font-size: 12px; font-family: var(--mono); color: var(--text-3); margin-top: 12px; line-height: 1.6; }
+.result-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 14px 16px; background: var(--bg-muted); border-radius: 8px; margin-bottom: 16px; }
+.result-header-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--uae); margin-bottom: 2px; }
+.result-header-name { font-size: 15px; font-weight: 700; color: var(--text); }
+.result-header-meta { font-size: 12px; color: var(--text-3); }
+.tool-header { padding: 36px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.alert-warn { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 16px 20px; font-size: 14px; color: #92400e; line-height: 1.7; margin-bottom: 24px; }
+.alert-warn strong { color: #78350f; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="/uk" class="nav-link">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link active">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uae/free-zone-comparison" class="nav-cta">Compare Free Zones</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <ol class="breadcrumb-list" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="/uae">UAE Business Setup</a></li>
+      <li aria-current="page">Business Setup Cost Calculator</li>
+    </ol>
+  </div>
+</div>
+
+<main id="main">
+
+  <div class="container">
+    <div class="tool-header" data-enter>
+      <div class="t-eye uae">UAE Business Setup Tool</div>
+      <h1 class="display">UAE Business Setup Cost Calculator 2024</h1>
+      <p class="lead">Get a complete itemised cost breakdown for your chosen UAE free zone. Select the free zone, number of visas and office type to see license fees, visa costs, establishment card, office rent and your first-year total.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+        <span class="badge badge-uae">12 Free Zones</span>
+        <span class="badge badge-blue">Full Breakdown</span>
+        <span class="badge badge-neutral">Not financial advice</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-bottom:24px">
+    <div class="ad-zone ad-zone--leaderboard">
+      <div class="ad-zone-placeholder">Advertisement</div>
+    </div>
+  </div>
+
+  <div class="container page-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="page-grid-main">
+
+      <!-- Tool Widget -->
+      <div class="tool-widget" data-enter>
+        <div class="tool-widget-header">
+          <h2>Calculate Setup Costs</h2>
+          <p style="font-size:13px;color:var(--text-3);margin-top:4px">All figures in AED. Estimates based on published free zone pricing. <a href="/uae/free-zone-comparison">Compare free zones first &rarr;</a></p>
+        </div>
+        <div class="tool-widget-body">
+          <div class="field-group">
+            <label class="field-label" for="fzSelect">Select Free Zone</label>
+            <p class="field-hint">Choose from 12 major UAE free zones across Dubai, Abu Dhabi and the Northern Emirates.</p>
+            <select class="field-input" id="fzSelect">
+              <option value="">— Choose a free zone —</option>
+              <option value="ajman">Ajman Free Zone (budget)</option>
+              <option value="creative-city">Fujairah Creative City (budget)</option>
+              <option value="rakez">RAKEZ — Ras Al Khaimah (budget)</option>
+              <option value="saif">SAIF Zone — Sharjah (budget)</option>
+              <option value="ifza">IFZA — Dubai (mid-range)</option>
+              <option value="dso">Dubai Silicon Oasis (mid-range)</option>
+              <option value="dmcc">DMCC — Dubai (premium)</option>
+              <option value="dic">Dubai Internet City (premium)</option>
+              <option value="dmc">Dubai Media City (premium)</option>
+              <option value="jafza">JAFZA — Jebel Ali (premium)</option>
+              <option value="difc">DIFC — Financial (premium)</option>
+              <option value="adgm">ADGM — Abu Dhabi Financial (premium)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="visaCount">Number of residence visas required</label>
+            <p class="field-hint">Include yourself (investor/partner visa) plus any employees.</p>
+            <select class="field-input" id="visaCount">
+              <option value="1">1 visa (investor only)</option>
+              <option value="2">2 visas</option>
+              <option value="3" selected>3 visas</option>
+              <option value="4">4 visas</option>
+              <option value="5">5 visas</option>
+              <option value="6">6 visas</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="officeType">Office arrangement</label>
+            <p class="field-hint">Flexi-desk is the most affordable option. DIFC and ADGM require a physical office minimum.</p>
+            <select class="field-input" id="officeType">
+              <option value="flexi">Flexi-desk / Virtual office</option>
+              <option value="desk" selected>Dedicated desk</option>
+              <option value="office">Small private office</option>
+            </select>
+          </div>
+        </div>
+        <div class="tool-widget-footer">
+          <button class="btn btn-primary" onclick="calcCosts()" style="width:100%;justify-content:center">Calculate &rarr;</button>
+        </div>
+        <div class="cost-result-wrap" id="costResult"></div>
+      </div>
+
+      <!-- Important Notes -->
+      <div class="alert-warn" data-enter role="note">
+        <strong>Important — estimates only:</strong> All figures are indicative, based on published 2026 free zone tariffs. Actual costs vary by activity type, current promotions and agent fees. DIFC and ADGM are premium regulated financial centres — costs are significantly higher than standard free zones and flexi-desk is not available at either.
+      </div>
+
+      <!-- Ad Zone In-Content -->
+      <div class="ad-zone ad-zone--in-content">
+        <div class="ad-zone-placeholder">Advertisement</div>
+      </div>
+
+      <!-- Prose Section -->
+      <section class="section-sm prose" data-enter>
+        <h2>Understanding UAE Free Zone Costs</h2>
+        <p>Setting up a UAE free zone company involves several cost categories that first-time founders frequently underestimate. Here is what to expect across each major line item.</p>
+        <h3>What's included in this calculator</h3>
+        <ul>
+          <li><strong>Trade license fee</strong> — the core annual license cost, varies by free zone and activity type</li>
+          <li><strong>Establishment card</strong> — required for processing employee visas, AED 1,500–2,000/year</li>
+          <li><strong>Residence visa costs</strong> — each visa covers medical, Emirates ID and residency stamping (AED 4,500–6,500 per person)</li>
+          <li><strong>Office or desk fee</strong> — flexi-desk from AED 2,000/year; private offices from AED 8,000/year</li>
+          <li><strong>Registration and admin fees</strong> — company registration, MOA and share certificates</li>
+          <li><strong>PRO services</strong> — document processing and government liaison (AED 2,000 estimated)</li>
+        </ul>
+        <h3>What's not included</h3>
+        <ul>
+          <li><strong>Bank account opening</strong> — typically no fee but requires a minimum balance of AED 25,000–100,000 at most UAE banks</li>
+          <li><strong>Annual audit fees</strong> — required for some free zones (AED 3,000–8,000/year)</li>
+          <li><strong>Accounting and bookkeeping</strong> — AED 3,000–6,000/year for a small company</li>
+          <li><strong>Health insurance</strong> — mandatory for all UAE visa holders (AED 1,500–5,000/person/year)</li>
+          <li><strong>Corporate tax registration</strong> — required if annual revenue exceeds AED 375,000 (9% UAE CT applies)</li>
+          <li><strong>Formation agent fees</strong> — if using a third-party agent (AED 1,500–5,000 typically)</li>
+        </ul>
+        <h3>Annual renewal costs</h3>
+        <p>Beyond the first-year setup, plan for annual renewal costs of typically 60–80% of initial setup. Visa renewals fall due every 2–3 years at approximately AED 3,000–5,000 per visa. DMCC charges an annual subscription fee in addition to the trade license. DIFC and ADGM have additional regulatory fees tied to their financial services licensing framework.</p>
+      </section>
+
+      <!-- Ad Zone In-Content -->
+      <div class="ad-zone ad-zone--in-content">
+        <div class="ad-zone-placeholder">Advertisement</div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section class="section-sm" data-enter>
+        <div class="t-eye uae" style="margin-bottom:8px">FAQ</div>
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:20px">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <details>
+              <summary class="faq-q">What is included in UAE free zone setup costs?</summary>
+              <div class="faq-body">
+                <p class="faq-ans">UAE free zone setup costs typically include: the trade license fee, company registration and admin fees, an establishment card, an office or flexi-desk fee, residence visa costs per person (covering medical, Emirates ID and residency stamping), and PRO/document processing. First-year totals range from around AED 15,000 for a budget free zone with one visa to AED 200,000+ for premium free zones with multiple visas.</p>
+              </div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary class="faq-q">How accurate are these cost estimates?</summary>
+              <div class="faq-body">
+                <p class="faq-ans">The estimates are based on published 2026 free zone tariffs and typical market rates. They are indicative only — actual costs can vary by 10–30% depending on activity type, current promotions, agent fees and whether bundled packages are available. Always request a formal quotation from the free zone authority or a registered formation agent before making a final decision.</p>
+              </div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary class="faq-q">What additional costs should I budget for?</summary>
+              <div class="faq-body">
+                <p class="faq-ans">Beyond core setup costs, budget for: bank account minimum balance (AED 25,000–100,000 depending on the bank), annual audit fees where required (AED 3,000–8,000), accounting and bookkeeping (AED 3,000–6,000/year), health insurance for each visa holder (AED 1,500–5,000/person/year), and corporate tax registration if annual revenue exceeds AED 375,000. Formation agent fees of AED 1,500–5,000 apply if you use a third-party service.</p>
+              </div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary class="faq-q">What is a UAE establishment card?</summary>
+              <div class="faq-body">
+                <p class="faq-ans">An establishment card (also called an e-channel establishment card or company establishment card) is required to process employee residence visas in the UAE. It is issued by MOHRE (Ministry of Human Resources and Emiratisation) and costs approximately AED 1,500–2,000. It must be renewed annually and is mandatory for any UAE company that intends to sponsor employee or investor visas.</p>
+              </div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary class="faq-q">Which UAE free zone is the cheapest?</summary>
+              <div class="faq-body">
+                <p class="faq-ans">Fujairah Creative City is currently the cheapest option with license fees from AED 5,750. Ajman Free Zone starts from AED 6,000. RAKEZ in Ras Al Khaimah starts from AED 7,500. For Dubai specifically, IFZA is the most cost-effective starting from AED 12,900. Budget free zones are based outside Dubai but are fully legitimate and MOHRE-registered for all standard business activities.</p>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Ad Zone after FAQ -->
+      <div class="ad-zone ad-zone--in-content">
+        <div class="ad-zone-placeholder">Advertisement</div>
+      </div>
+
+      <!-- Cross-strip UAE to UK -->
+      <div class="cross-strip uae-to-uk" data-enter style="margin-bottom:40px">
+        <div>
+          <h3>Also operating in the UK?</h3>
+          <p>Check your UK employment contracts against the Employment Rights Act 2024 — the UK's biggest employment law change in 30 years.</p>
+        </div>
+        <a href="/uk/era-2024-contract-checker" class="btn btn-white">Check ERA 2024 Compliance &rarr;</a>
+      </div>
+
+    </div><!-- /page-grid-main -->
+
+    <!-- RIGHT COLUMN / SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd">
+          <div class="sidebar-card-hd-title">Related Tools</div>
+        </div>
+        <div class="sidebar-card-body">
+          <a href="/uae/free-zone-comparison" class="sidebar-tool-link">UAE Free Zone Comparison</a>
+          <a href="/uk/era-2024-contract-checker" class="sidebar-tool-link">UK ERA 2024 Compliance Checker</a>
+          <a href="/uk/holiday-entitlement-calculator" class="sidebar-tool-link">UK Holiday Entitlement Calculator</a>
+          <a href="/uk/zero-hours-rights-checker" class="sidebar-tool-link">UK Zero-Hours Rights Checker</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd">
+          <div class="sidebar-card-hd-title">Free Zone Quick Reference</div>
+        </div>
+        <div class="sidebar-card-body">
+          <ul style="list-style:none;padding:0;font-size:13px;line-height:2.1;color:var(--text-2)">
+            <li><strong style="color:var(--text)">Cheapest:</strong> Fujairah Creative City from AED 5,750</li>
+            <li><strong style="color:var(--text)">Best value Dubai:</strong> IFZA from AED 12,900</li>
+            <li><strong style="color:var(--text)">Premium:</strong> DMCC from AED 22,000</li>
+            <li><strong style="color:var(--text)">Financial centre:</strong> DIFC from AED 40,000</li>
+          </ul>
+          <a href="/uae/free-zone-comparison" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:14px;font-size:13px">Compare All 12 Free Zones &rarr;</a>
+        </div>
+      </div>
+
+      <div class="ad-zone ad-zone--sidebar">
+        <div class="ad-zone-placeholder">Advertisement</div>
+      </div>
+
+    </aside>
+
+  </div><!-- /page-grid -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-logo">Compliance<span class="dot">.</span>Calc</a>
+        <p class="footer-tagline">Free professional compliance tools for UK and UAE businesses. Estimates only — not professional legal or financial advice.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">UAE Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li>
+          <li><a href="/uae/business-setup-cost-calculator">Setup Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">UK Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li>
+          <li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li>
+          <li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Info</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-note">&copy; 2026 ComplianceCalc &mdash; Estimates only, not professional advice.</span>
+      <span class="footer-note">Updated September 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const FZ_DATA = {
+  ajman:         {name:'Ajman Free Zone',license:[6000,12000],reg:1500,estCard:1500,officeF:2000,officeD:4000,officeO:8000,visaBase:4500,tier:'Budget'},
+  'creative-city':{name:'Fujairah Creative City',license:[5750,15000],reg:1500,estCard:1500,officeF:2000,officeD:4000,officeO:8000,visaBase:4500,tier:'Budget'},
+  rakez:         {name:'RAKEZ — Ras Al Khaimah',license:[7500,15000],reg:2000,estCard:1500,officeF:3000,officeD:5000,officeO:12000,visaBase:4800,tier:'Budget'},
+  saif:          {name:'SAIF Zone — Sharjah',license:[8500,20000],reg:2000,estCard:1500,officeF:3000,officeD:5500,officeO:12000,visaBase:4800,tier:'Budget'},
+  ifza:          {name:'IFZA — Dubai',license:[12900,18000],reg:2500,estCard:1800,officeF:4000,officeD:7000,officeO:15000,visaBase:5000,tier:'Mid-range'},
+  dso:           {name:'Dubai Silicon Oasis',license:[18000,32000],reg:3000,estCard:1800,officeF:5000,officeD:8000,officeO:18000,visaBase:5200,tier:'Mid-range'},
+  dmcc:          {name:'DMCC — Dubai',license:[22000,50000],reg:3500,estCard:2000,officeF:6000,officeD:10000,officeO:22000,visaBase:5500,tier:'Premium'},
+  dic:           {name:'Dubai Internet City',license:[25000,45000],reg:3500,estCard:2000,officeF:6000,officeD:10000,officeO:22000,visaBase:5500,tier:'Premium'},
+  dmc:           {name:'Dubai Media City',license:[23000,42000],reg:3500,estCard:2000,officeF:6000,officeD:10000,officeO:20000,visaBase:5500,tier:'Premium'},
+  jafza:         {name:'JAFZA — Jebel Ali',license:[30000,80000],reg:4000,estCard:2000,officeF:7000,officeD:12000,officeO:25000,visaBase:5500,tier:'Premium'},
+  difc:          {name:'DIFC — Financial Centre',license:[40000,120000],reg:8000,estCard:2000,officeF:0,officeD:15000,officeO:35000,visaBase:6000,tier:'Premium'},
+  adgm:          {name:'ADGM — Abu Dhabi',license:[50000,150000],reg:8000,estCard:2000,officeF:0,officeD:15000,officeO:35000,visaBase:6500,tier:'Premium'}
+};
+function fmtAed(n) { return 'AED ' + Math.round(n).toLocaleString(); }
+function fmtRange(a,b) { return 'AED ' + Math.round(a).toLocaleString() + ' – ' + Math.round(b).toLocaleString(); }
+function calcCosts() {
+  const fzKey = document.getElementById('fzSelect').value;
+  const visas = parseInt(document.getElementById('visaCount').value);
+  const office = document.getElementById('officeType').value;
+  if (!fzKey) { alert('Please select a free zone.'); return; }
+  const fz = FZ_DATA[fzKey];
+  const offCost = office === 'flexi' ? fz.officeF : office === 'desk' ? fz.officeD : fz.officeO;
+  const visaCostEach = fz.visaBase;
+  const totalVisas = visas * visaCostEach;
+  const licMin = fz.license[0];
+  const licMax = fz.license[1];
+  const proFee = 2000;
+  const totalMin = licMin + fz.reg + fz.estCard + offCost + totalVisas + proFee;
+  const totalMax = licMax + fz.reg + fz.estCard + offCost + totalVisas + proFee;
+  const officeLabel = office === 'flexi' ? 'Flexi-desk / Virtual office' : office === 'desk' ? 'Dedicated desk' : 'Private office';
+  const difcNote = (fzKey === 'difc' || fzKey === 'adgm') ? '<p class="cost-note"><strong>Note:</strong> DIFC/ADGM flexi-desk is not available — a minimum physical office is required. Costs shown use dedicated desk pricing.</p>' : '';
+  const wrap = document.getElementById('costResult');
+  wrap.innerHTML = `
+    <div class="result-header">
+      <div>
+        <div class="result-header-tier">${fz.tier} Free Zone</div>
+        <div class="result-header-name">${fz.name}</div>
+      </div>
+      <span class="result-header-meta">${visas} visa${visas>1?'s':''} &middot; ${officeLabel}</span>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Cost Item</th>
+          <th>Low Estimate</th>
+          <th>High Estimate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Trade license fee (annual)</td>
+          <td class="cost-range">${fmtAed(licMin)}</td>
+          <td class="cost-range">${fmtAed(licMax)}</td>
+        </tr>
+        <tr>
+          <td>Registration &amp; admin fees</td>
+          <td class="cost-range">${fmtAed(fz.reg)}</td>
+          <td class="cost-range">${fmtAed(fz.reg)}</td>
+        </tr>
+        <tr>
+          <td>Establishment card (annual)</td>
+          <td class="cost-range">${fmtAed(fz.estCard)}</td>
+          <td class="cost-range">${fmtAed(fz.estCard)}</td>
+        </tr>
+        <tr>
+          <td>${officeLabel} (annual)</td>
+          <td class="cost-range">${offCost > 0 ? fmtAed(offCost) : 'Contact FZ'}</td>
+          <td class="cost-range">${offCost > 0 ? fmtAed(offCost) : 'Contact FZ'}</td>
+        </tr>
+        <tr>
+          <td>Residence visas (${visas} &times; ~${fmtAed(visaCostEach)} each)</td>
+          <td class="cost-range">${fmtAed(totalVisas)}</td>
+          <td class="cost-range">${fmtAed(totalVisas)}</td>
+        </tr>
+        <tr>
+          <td>PRO &amp; document processing (est.)</td>
+          <td class="cost-range">${fmtAed(proFee)}</td>
+          <td class="cost-range">${fmtAed(proFee)}</td>
+        </tr>
+        <tr class="cost-total-row">
+          <td>Estimated first-year total</td>
+          <td class="cost-range">${fmtAed(totalMin)}</td>
+          <td class="cost-range">${fmtAed(totalMax)}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="cost-note">Figures in AED. License fee varies by activity type — low estimate uses minimum published tariff, high uses maximum. Visa costs include medical, Emirates ID and residency stamping. Bank account minimum balance requirements (AED 25,000–100,000) not included. <a href="/uae/free-zone-comparison">Compare free zones to find your best match →</a></p>
+    ${difcNote}
+  `;
+  wrap.classList.add('visible');
+  wrap.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+</script>
+<script src="/shared/scripts.js" defer></script>
+</body>
+</html>

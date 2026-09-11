@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero-Hours Contract Rights Checker (ERA 2024) — Am I Entitled to Guaranteed Hours?</title>
+<meta name="description" content="Check whether zero-hours workers are entitled to request guaranteed hours under the Employment Rights Act 2024. Enter weeks worked, average hours and get an instant entitlement assessment.">
+<link rel="canonical" href="https://compliancecalc.com/uk/zero-hours-rights-checker">
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Zero-Hours Contract Rights Checker (ERA 2024)","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Check whether zero-hours workers qualify for the right to request guaranteed hours under the Employment Rights Act 2024 after 12 weeks of regular work.","url":"https://compliancecalc.com/uk/zero-hours-rights-checker","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"inLanguage":"en-GB","dateModified":"2026-09-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When do zero-hours workers get the right to request guaranteed hours?","acceptedAnswer":{"@type":"Answer","text":"Under the Employment Rights Act 2024, zero-hours workers who work regular and predictable hours for 12 consecutive weeks gain the right to request a guaranteed-hours contract. The employer must offer guaranteed hours reflecting the worker's regular pattern or provide legitimate business reasons for not doing so. This provision is expected to come into force in 2026 via secondary legislation."}},{"@type":"Question","name":"Can an employer refuse to offer guaranteed hours?","acceptedAnswer":{"@type":"Answer","text":"Yes, but only in limited circumstances. The employer must provide a written statement of reasons within a specific timeframe. Refusing without legitimate reasons or dismissing a worker for requesting guaranteed hours will be automatically unfair. Workers can bring an employment tribunal claim if their request is unreasonably refused."}},{"@type":"Question","name":"Does the ERA 2024 zero-hours right apply to agency workers?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Employment Rights Act 2024 extends the guaranteed hours right to agency workers working through employment agencies. Both the agency and the end client (hirer) may have obligations. The 12-week qualifying period applies in the same way."}},{"@type":"Question","name":"What counts as 'regular hours' for the 12-week test?","acceptedAnswer":{"@type":"Answer","text":"The definition of 'regular' hours for the ERA 2024 guaranteed hours right will be set out in secondary legislation. Generally, working similar hours on a predictable pattern over a sustained period is expected to qualify. Sporadic or highly variable hours may not meet the threshold. The government has indicated a broad definition to cover typical zero-hours working patterns."}},{"@type":"Question","name":"What should zero-hours workers do now?","acceptedAnswer":{"@type":"Answer","text":"Zero-hours workers should keep a record of the hours they work each week, noting start and end times and total hours. Once the guaranteed hours provisions come into force (expected 2026), workers who have 12+ consecutive weeks of regular hours will be able to make a formal request. Workers should also check whether their employer has updated their flexible working policy to allow day-one requests, which is already in force."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+
+<style>
+  /* Page-specific: tool header */
+  .tool-header {
+    padding: clamp(32px, 4vw, 52px) 0 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Tool widget header (not in shared) */
+  .tool-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-widget-title {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.01em;
+  }
+
+  /* Result box: CSS variables for bg tints */
+  :root {
+    --pass-bg: #f0fdf4;
+    --warn-bg: #fffbeb;
+    --fail-bg: #fef2f2;
+  }
+
+  /* Result box styles */
+  .result-box { border-radius: 10px; padding: 24px; margin-top: 24px; display: none; border: 1.5px solid; }
+  .result-box.visible { display: block; }
+  .result-box.pass { background: var(--pass-bg); border-color: var(--pass); }
+  .result-box.warn { background: var(--warn-bg); border-color: var(--warn); }
+  .result-box.fail { background: var(--fail-bg); border-color: var(--fail); }
+  .result-icon { font-size: 28px; font-weight: 900; font-family: var(--mono); }
+  .result-title { font-size: 20px; font-weight: 800; margin: 8px 0 12px; letter-spacing: -.025em; }
+  .result-box.pass .result-title { color: var(--pass); }
+  .result-box.warn .result-title { color: var(--warn); }
+  .result-box.fail .result-title { color: var(--fail); }
+  .result-detail { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 12px; }
+  .result-action { font-size: 13px; font-family: var(--mono); color: var(--text-2); background: rgba(255,255,255,0.6); padding: 12px; border-radius: 8px; margin-top: 8px; display: block; }
+  .result-note { font-size: 12px; color: var(--text-3); margin-top: 12px; font-family: var(--mono); line-height: 1.6; }
+
+  /* Full-width button util */
+  .btn-block { width: 100%; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="/uk" class="nav-link active">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uk/era-2024-contract-checker" class="nav-cta">ERA 2024 Checker</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <ol class="breadcrumb-list" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="/uk">UK Employment Law</a></li>
+      <li aria-current="page">Zero-Hours Rights Checker</li>
+    </ol>
+  </div>
+</div>
+
+<main id="main">
+  <div class="container">
+
+    <!-- TOOL HEADER -->
+    <div class="tool-header" data-enter>
+      <div class="t-eye uk">UK Employment Law Tool</div>
+      <h1 class="display">Zero-Hours Contract Rights Checker (ERA 2024)</h1>
+      <p class="lead">Check whether a zero-hours worker qualifies for the right to request a guaranteed-hours contract under the Employment Rights Act 2024. Enter consecutive weeks worked and average hours for an instant assessment.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+        <span class="badge badge-uk">ERA 2024</span>
+        <span class="badge badge-warn">Expected 2026</span>
+        <span class="badge badge-neutral">Not legal advice</span>
+      </div>
+    </div>
+
+    <!-- AD ZONE: leaderboard -->
+    <div class="ad-zone ad-zone--leaderboard" aria-label="Advertisement">
+      <div class="ad-zone-placeholder">Advertisement &middot; 728&times;90</div>
+    </div>
+
+    <!-- PAGE GRID -->
+    <div class="page-grid">
+
+      <!-- LEFT: Main content -->
+      <div>
+
+        <!-- TOOL WIDGET -->
+        <div class="tool-widget" data-enter data-enter-delay="1">
+          <div class="tool-widget-header">
+            <span class="tool-widget-title">Check Eligibility</span>
+            <span class="badge badge-uk">ERA 2024</span>
+          </div>
+          <div class="tool-widget-body">
+            <div class="field-group">
+              <label class="field-label" for="weeksWorked">Consecutive weeks worked on zero/variable hours contract</label>
+              <p class="field-hint">Count only unbroken consecutive weeks. A gap of more than 1 week resets the qualifying period.</p>
+              <input class="field-input" type="number" id="weeksWorked" min="0" max="520" placeholder="e.g. 14" inputmode="numeric">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="avgHours">Average weekly hours worked</label>
+              <p class="field-hint">Average over the qualifying period. Include all hours worked including any overtime.</p>
+              <input class="field-input" type="number" id="avgHours" min="0" max="168" step="0.5" placeholder="e.g. 24" inputmode="decimal">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="contractType">Contract type</label>
+              <select class="field-input" id="contractType">
+                <option value="zero">Zero-hours contract (no guaranteed hours)</option>
+                <option value="variable">Variable-hours contract (some hours but unpredictable)</option>
+                <option value="agency">Agency worker on zero/variable hours</option>
+              </select>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-primary btn-block" onclick="checkRights()">Check Entitlement &rarr;</button>
+          </div>
+
+          <!-- RESULT BOX -->
+          <div id="resultBox" class="result-box">
+            <div id="resultIcon" class="result-icon"></div>
+            <div id="resultTitle" class="result-title"></div>
+            <div id="resultDetail" class="result-detail"></div>
+            <div id="resultAction" class="result-action"></div>
+            <div id="resultNote" class="result-note"></div>
+          </div>
+        </div>
+
+        <!-- AD ZONE: in-content -->
+        <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+          <div class="ad-zone-placeholder">Advertisement</div>
+        </div>
+
+        <!-- PROSE: Educational content -->
+        <section class="section-sm" data-enter>
+          <div class="prose">
+            <h2>What is the ERA 2024 Guaranteed Hours Right?</h2>
+            <p>The Employment Rights Act 2024 introduces a landmark new right for workers on zero-hours and variable-hours contracts. After working regular, predictable hours for <strong>12 consecutive weeks</strong>, workers will have the right to request a contract that reflects their actual working pattern.</p>
+            <p>This is a significant step forward for the estimated 1 million zero-hours workers in the UK, providing greater financial certainty and employment security without fully removing the flexibility that some workers prefer.</p>
+            <h3>Key provisions</h3>
+            <ul>
+              <li>The 12-week qualifying period must be continuous — a gap of more than one week resets the count</li>
+              <li>Both zero-hours and variable-hours contract workers are covered</li>
+              <li>Agency workers are explicitly included in the right</li>
+              <li>Employers must offer guaranteed hours reflecting the worker's regular pattern, or provide written reasons within a statutory timeframe</li>
+              <li>Dismissal or detriment for making a guaranteed hours request will be automatically unfair</li>
+              <li>Workers can bring employment tribunal claims for unreasonable refusal or detriment</li>
+            </ul>
+            <h3>Implementation timeline</h3>
+            <p>The ERA 2024 received Royal Assent in October 2024. The guaranteed hours provisions are expected to come into force in <strong>2026 via secondary legislation</strong>. Workers should begin keeping detailed records of their working patterns now so they are prepared to make a formal request once the law is in force.</p>
+            <div class="alert alert-info">
+              <strong>Note:</strong> This tool assesses eligibility based on the expected qualifying criteria. The precise definition of &ldquo;regular hours&rdquo; will be confirmed in secondary legislation. For informational purposes only — not legal advice.
+            </div>
+          </div>
+        </section>
+
+        <!-- AD ZONE: in-content -->
+        <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+          <div class="ad-zone-placeholder">Advertisement</div>
+        </div>
+
+        <!-- FAQ -->
+        <section class="section-sm" data-enter>
+          <h2 class="display-sm" style="margin-bottom:24px">Frequently Asked Questions</h2>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt class="faq-q">When do zero-hours workers get the right to request guaranteed hours?</dt>
+              <dd class="faq-body">
+                <p class="faq-ans">Under ERA 2024, zero-hours workers who work regular and predictable hours for 12 consecutive weeks gain the right to request a guaranteed-hours contract. The employer must offer guaranteed hours reflecting the worker&rsquo;s regular pattern or provide legitimate business reasons for not doing so. This provision is expected to come into force in 2026 via secondary legislation.</p>
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Can an employer refuse to offer guaranteed hours?</dt>
+              <dd class="faq-body">
+                <p class="faq-ans">Yes, but only in limited circumstances. The employer must provide a written statement of reasons within a specific timeframe. Refusing without legitimate reasons or dismissing a worker for requesting guaranteed hours will be automatically unfair. Workers can bring an employment tribunal claim if their request is unreasonably refused.</p>
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Does the ERA 2024 zero-hours right apply to agency workers?</dt>
+              <dd class="faq-body">
+                <p class="faq-ans">Yes. The Employment Rights Act 2024 extends the guaranteed hours right to agency workers working through employment agencies. Both the agency and the end client (hirer) may have obligations. The 12-week qualifying period applies in the same way.</p>
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">What counts as &lsquo;regular hours&rsquo; for the 12-week test?</dt>
+              <dd class="faq-body">
+                <p class="faq-ans">The definition of &lsquo;regular&rsquo; hours for the ERA 2024 guaranteed hours right will be set out in secondary legislation. Generally, working similar hours on a predictable pattern over a sustained period is expected to qualify. Sporadic or highly variable hours may not meet the threshold. The government has indicated a broad definition to cover typical zero-hours working patterns.</p>
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">What should zero-hours workers do now?</dt>
+              <dd class="faq-body">
+                <p class="faq-ans">Zero-hours workers should keep a record of the hours they work each week, noting start and end times and total hours. Once the guaranteed hours provisions come into force (expected 2026), workers who have 12+ consecutive weeks of regular hours will be able to make a formal request. Workers should also check whether their employer has updated their flexible working policy to allow day-one requests, which is already in force.</p>
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- AD ZONE: after FAQ -->
+        <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+          <div class="ad-zone-placeholder">Advertisement</div>
+        </div>
+
+        <!-- CROSS-STRIP -->
+        <div class="cross-strip uk-to-uae" data-enter style="margin-bottom:40px">
+          <div>
+            <h3>Also setting up in the UAE?</h3>
+            <p>Compare all 12 UAE free zones side-by-side &mdash; costs, visa allocations, setup times and best-fit activities.</p>
+          </div>
+          <a href="/uae/free-zone-comparison" class="btn btn-white">Compare UAE Free Zones &rarr;</a>
+        </div>
+
+      </div><!-- /left -->
+
+      <!-- RIGHT: Sidebar -->
+      <aside class="sidebar">
+
+        <!-- Related tools card -->
+        <div class="sidebar-card" data-enter data-enter-delay="1">
+          <div class="sidebar-card-hd">
+            <span class="sidebar-card-hd-title">Related Tools</span>
+          </div>
+          <div class="sidebar-card-body">
+            <a href="/uk/era-2024-contract-checker" class="sidebar-tool-link">
+              <span>ERA 2024 Full Compliance Checker</span>
+              <span class="badge badge-uk">ERA 2024</span>
+            </a>
+            <a href="/uk/holiday-entitlement-calculator" class="sidebar-tool-link">
+              <span>Holiday Entitlement Calculator</span>
+              <span class="badge badge-neutral">UK</span>
+            </a>
+            <a href="/uae/free-zone-comparison" class="sidebar-tool-link">
+              <span>UAE Free Zone Comparison</span>
+              <span class="badge badge-blue">UAE</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick reference card -->
+        <div class="sidebar-card" data-enter data-enter-delay="2">
+          <div class="sidebar-card-hd">
+            <span class="sidebar-card-hd-title">Quick Reference</span>
+          </div>
+          <div class="sidebar-card-body">
+            <div class="result-tiles">
+              <div class="result-tile">
+                <div class="tile-num">12</div>
+                <div class="tile-label">weeks qualifying threshold</div>
+              </div>
+              <div class="result-tile">
+                <div class="tile-num">2026</div>
+                <div class="tile-label">expected implementation</div>
+              </div>
+            </div>
+            <div class="alert alert-warn" style="margin-top:14px;font-size:13px;line-height:1.55">
+              Agency workers are included &mdash; both agency and end client (hirer) may have obligations under ERA 2024.
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar ad zone -->
+        <div class="ad-zone ad-zone--sidebar" aria-label="Advertisement">
+          <div class="ad-zone-placeholder">Advertisement &middot; 300&times;250</div>
+        </div>
+
+      </aside><!-- /sidebar -->
+
+    </div><!-- /page-grid -->
+
+  </div><!-- /container -->
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Compliance<span class="dot">.</span>Calc</div>
+        <p class="footer-tagline">Free professional compliance tools for UK employment law and UAE business setup. Not legal or financial advice.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">UK Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li>
+          <li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li>
+          <li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li>
+          <li><a href="/uk">All UK Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">UAE Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li>
+          <li><a href="/uae/business-setup-cost-calculator">Cost Calculator</a></li>
+          <li><a href="/uae">All UAE Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links">
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-note">&copy; 2026 ComplianceCalc &mdash; For informational purposes only. Not legal advice.</span>
+      <span class="footer-note">Updated September 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function checkRights() {
+  const weeks = parseInt(document.getElementById('weeksWorked').value) || 0;
+  const hours = parseFloat(document.getElementById('avgHours').value) || 0;
+  const type = document.getElementById('contractType').value;
+  const box = document.getElementById('resultBox');
+  const icon = document.getElementById('resultIcon');
+  const title = document.getElementById('resultTitle');
+  const detail = document.getElementById('resultDetail');
+  const action = document.getElementById('resultAction');
+  const note = document.getElementById('resultNote');
+
+  if (weeks === 0 || hours === 0) { alert('Please enter weeks worked and average hours.'); return; }
+
+  box.className = 'result-box';
+  let status, titleTxt, detailTxt, actionTxt, iconTxt;
+
+  if (weeks >= 12 && hours >= 1) {
+    status = 'pass';
+    iconTxt = '✓';
+    titleTxt = 'Likely qualifies for guaranteed hours right';
+    detailTxt = `This worker has worked <strong>${weeks} consecutive weeks</strong> averaging <strong>${hours} hours/week</strong>. Under ERA 2024, this meets the 12-week qualifying threshold for the right to request a guaranteed-hours contract once the provision comes into force (expected 2026).`;
+    actionTxt = `Next step: Keep records of hours worked. When provisions come into force in 2026, submit a formal written request for a guaranteed-hours contract. The employer must respond within the statutory timeframe or face tribunal risk.`;
+  } else if (weeks >= 8 && weeks < 12) {
+    status = 'warn';
+    iconTxt = '⏳';
+    titleTxt = `Not yet — ${12 - weeks} more week${12 - weeks > 1 ? 's' : ''} needed`;
+    detailTxt = `This worker has worked <strong>${weeks} consecutive weeks</strong>. Needs <strong>${12 - weeks} more consecutive week${12 - weeks > 1 ? 's' : ''}</strong>.`;
+    actionTxt = 'Keep a record of hours worked each week. Do not take breaks longer than 1 week.';
+  } else {
+    status = 'fail';
+    iconTxt = '✕';
+    titleTxt = 'Does not yet qualify';
+    detailTxt = `This worker has worked <strong>${weeks} consecutive week${weeks !== 1 ? 's' : ''}</strong>. Needs ${Math.max(0, 12 - weeks)} more weeks of continuous work.`;
+    actionTxt = 'Continue working and keep accurate records. Avoid breaks of more than 1 week as this resets the qualifying period.';
+  }
+
+  const agencyNote = type === 'agency' ? ' This worker is an agency worker — both the agency and end client (hirer) may have obligations once the provisions come into force.' : '';
+  const implNote = ' <strong>Important:</strong> The ERA 2024 guaranteed hours provisions are not yet in force (expected 2026). This checker assesses eligibility based on the expected qualifying criteria.';
+
+  box.classList.add(status, 'visible');
+  icon.innerHTML = iconTxt;
+  title.textContent = titleTxt;
+  detail.innerHTML = detailTxt + agencyNote;
+  action.textContent = actionTxt;
+  note.innerHTML = implNote + ' This tool is for informational purposes only and does not constitute legal advice.';
+}
+</script>
+<script src="/shared/scripts.js" defer></script>
+
+</body>
+</html>

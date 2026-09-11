@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UK Holiday Entitlement Calculator 2024 — Full-Time, Part-Time &amp; Irregular Hours</title>
+<meta name="description" content="Calculate UK statutory holiday entitlement for full-time, part-time and irregular-hours workers under 2024 rules. Includes rolled-up holiday pay calculations for zero-hours and casual workers.">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/uk/holiday-entitlement-calculator">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"UK Holiday Entitlement Calculator 2024","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Calculate UK statutory holiday entitlement for full-time, part-time and irregular-hours workers. Includes rolled-up holiday pay for zero-hours workers.","url":"https://YOUR-DOMAIN.com/uk/holiday-entitlement-calculator","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"inLanguage":"en-GB","dateModified":"2026-09-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the minimum statutory holiday entitlement in the UK 2024?","acceptedAnswer":{"@type":"Answer","text":"The minimum statutory annual leave entitlement in the UK is 5.6 weeks per year, which equals 28 days for a worker working 5 days a week. This includes 4 weeks under the Working Time Regulations and 1.6 weeks additional leave. Part-time workers receive a pro-rata equivalent. Bank holidays can be included within this 28-day total if the employer chooses."}},{"@type":"Question","name":"How is holiday entitlement calculated for part-time workers in 2024?","acceptedAnswer":{"@type":"Answer","text":"Part-time workers receive holiday entitlement on a pro-rata basis calculated as 5.6 × the number of days worked per week. For example, someone working 3 days per week gets 5.6 × 3 = 16.8 days holiday entitlement per year. Holiday entitlement for part-time workers must not be less favourable than full-time equivalent workers."}},{"@type":"Question","name":"How is holiday calculated for zero-hours or irregular workers in 2024?","acceptedAnswer":{"@type":"Answer","text":"From January 2024, irregular-hours workers (including zero-hours) accrue holiday at 12.07% of actual hours worked, calculated at the end of each pay period. Alternatively, employers can use rolled-up holiday pay — adding 12.07% on top of each payslip. The 52-week average reference period method was also available but the 12.07% accrual method became the standard in 2024."}},{"@type":"Question","name":"What changed about holiday pay for irregular workers in 2024?","acceptedAnswer":{"@type":"Answer","text":"From 1 January 2024, the Employment (Amendment of Retained EU Law) Act 2023 introduced changes. Rolled-up holiday pay became lawful for irregular-hours workers. Holiday accrual for these workers is calculated at 12.07% of hours worked in each pay period. The previous 12.07% method was previously only used informally but is now the statutory method."}},{"@type":"Question","name":"Can bank holidays be included in the 28-day statutory entitlement?","acceptedAnswer":{"@type":"Answer","text":"Yes. The statutory minimum of 28 days (for a 5-day worker) can include bank holidays if the employer chooses. There is no legal right to take bank holidays off as additional leave on top of the 28-day minimum unless the employment contract specifically provides for this."}},{"@type":"Question","name":"What is rolled-up holiday pay and when is it lawful?","acceptedAnswer":{"@type":"Answer","text":"Rolled-up holiday pay means adding a percentage (12.07%) to a worker's regular pay each period to cover their holiday pay entitlement, instead of paying a separate amount when they take leave. From January 2024, rolled-up holiday pay is lawful for irregular-hours workers and part-year workers. It must be clearly identified on the payslip. It is not lawful for workers with normal, regular hours."}},{"@type":"Question","name":"What if a worker leaves part-way through the year — do they keep accrued holiday?","acceptedAnswer":{"@type":"Answer","text":"Yes. When a worker leaves, they are entitled to pay for any unused accrued holiday. For a full-year worker (52 weeks), entitlement accrues at 2.33 days per month (28 ÷ 12). If a worker is dismissed or leaves before using all their holiday, the employer must pay for the accrued unused days at the appropriate daily rate."}}]}
+</script>
+<style>
+/* ─ Tool header ─ */
+.tool-header{padding:clamp(32px,4vw,52px) 0 24px;border-bottom:1px solid var(--border)}
+
+/* ─ Tab bar ─ */
+.tabs{display:flex;border-bottom:1.5px solid var(--border);background:var(--bg)}
+.tab-btn{flex:1;padding:14px 20px;font-size:13px;font-weight:700;color:var(--text-3);border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all .15s;cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--font);letter-spacing:-.01em}
+.tab-btn:hover{color:var(--text-2)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ─ Result display override ─ */
+#resultGrid{display:none;margin-top:24px}
+#resultGrid.visible{display:grid}
+#resultNote{display:none;margin-top:12px;padding:14px 16px;background:var(--bg-muted);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);font-size:13px;color:var(--text-2);line-height:1.65}
+#resultNote.visible{display:block}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" role="navigation" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="/uk" class="nav-link active">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uk/era-2024-contract-checker" class="nav-cta">ERA 2024 Checker</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="sep">›</li>
+        <li><a href="/uk">UK Employment Law</a></li>
+        <li class="sep">›</li>
+        <li>Holiday Entitlement Calculator 2024</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+<div class="tool-header">
+  <div class="container">
+    <div class="t-eye uk mb-16" data-enter>UK Employment Law Tool</div>
+    <h1 class="display" style="max-width:820px;margin-bottom:16px" data-enter data-enter-delay="1">UK Holiday Entitlement Calculator 2024</h1>
+    <p class="lead" style="margin-bottom:20px" data-enter data-enter-delay="2">Calculate statutory holiday entitlement for full-time, part-time and irregular-hours workers — including zero-hours — under updated 2024 rules. Covers rolled-up holiday pay for casual workers. Free and instant.</p>
+    <div class="flex flex-wrap gap-8" data-enter data-enter-delay="3">
+      <span class="badge badge-pass"><span class="dot"></span>Updated Jan 2024</span>
+      <span class="badge badge-blue">Free &amp; instant</span>
+      <span class="badge badge-neutral">Not legal advice</span>
+    </div>
+  </div>
+</div>
+
+<!-- AD ZONE: Leaderboard -->
+<div class="container" style="padding-top:20px">
+  <div class="ad-zone ad-zone--leaderboard" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · 728×90</div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:24px;padding-bottom:60px">
+  <div class="page-grid">
+
+    <!-- ── MAIN COLUMN ── -->
+    <div>
+
+      <!-- TOOL WIDGET -->
+      <div class="tool-widget" data-enter>
+        <div class="tool-widget-header">
+          <div class="tool-widget-title">Calculate Holiday Entitlement</div>
+          <span class="badge badge-uk">Working Time Regs 1998</span>
+        </div>
+
+        <!-- Tab bar -->
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" id="tab-full" role="tab" aria-selected="true" onclick="switchTab('full')">Full-time / Part-time</button>
+          <button class="tab-btn" id="tab-irregular" role="tab" aria-selected="false" onclick="switchTab('irregular')">Irregular / Zero-hours</button>
+        </div>
+
+        <div class="tool-widget-body">
+
+          <!-- FULL-TIME PANEL -->
+          <div class="tab-panel active" id="panel-full">
+            <div class="field-group">
+              <label class="field-label" for="daysPerWeek">Days worked per week</label>
+              <div class="field-hint">Enter days typically worked each week. Decimals allowed — e.g. 2.5 for two and a half days.</div>
+              <input class="field-input" type="number" id="daysPerWeek" min="0.5" max="7" step="0.5" placeholder="e.g. 5" inputmode="decimal">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="weeksPerYear">Weeks worked per year</label>
+              <div class="field-hint">Full-year employment: enter 52. Part-year workers: enter actual weeks worked.</div>
+              <input class="field-input" type="number" id="weeksPerYear" min="1" max="52" step="1" placeholder="52" inputmode="numeric" value="52">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="dailyPay">Daily pay rate (£) — optional</label>
+              <div class="field-hint">Enter average daily pay to calculate holiday pay value. Leave blank for a days-only calculation.</div>
+              <input class="field-input" type="number" id="dailyPay" min="0" step="0.01" placeholder="e.g. 120.00" inputmode="decimal">
+            </div>
+            <button class="btn btn-primary" style="width:100%" onclick="calcFullTime()">Calculate Holiday Entitlement →</button>
+          </div>
+
+          <!-- IRREGULAR / ZERO-HOURS PANEL -->
+          <div class="tab-panel" id="panel-irregular">
+            <div class="field-group">
+              <label class="field-label" for="hoursWorked">Total hours worked in the period</label>
+              <div class="field-hint">Enter actual hours worked (not contracted). For weekly calculation, enter this pay period's hours.</div>
+              <input class="field-input" type="number" id="hoursWorked" min="0" step="0.5" placeholder="e.g. 168" inputmode="decimal">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="hourlyRate">Hourly pay rate (£)</label>
+              <div class="field-hint">Used to calculate rolled-up holiday pay at 12.07% of earnings.</div>
+              <input class="field-input" type="number" id="hourlyRate" min="0" step="0.01" placeholder="e.g. 12.50" inputmode="decimal">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="periodType">Calculation period</label>
+              <select class="field-input" id="periodType">
+                <option value="week">Single week</option>
+                <option value="month">Month (4.33 weeks)</option>
+                <option value="year">Full year</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" style="width:100%" onclick="calcIrregular()">Calculate Holiday &amp; Rolled-Up Pay →</button>
+          </div>
+
+          <!-- RESULT TILES (shared across both tabs) -->
+          <div class="result-tiles" id="resultGrid">
+            <div class="result-tile">
+              <div class="tile-num" id="r-days">–</div>
+              <div class="tile-label">Holiday days</div>
+            </div>
+            <div class="result-tile">
+              <div class="tile-num" id="r-hours">–</div>
+              <div class="tile-label">Holiday hours</div>
+            </div>
+            <div class="result-tile">
+              <div class="tile-num" id="r-pay">–</div>
+              <div class="tile-label">Holiday pay</div>
+            </div>
+          </div>
+
+          <!-- RESULT NOTE -->
+          <div id="resultNote"></div>
+
+        </div><!-- /tool-widget-body -->
+      </div><!-- /tool-widget -->
+
+      <!-- ALERT: 12.07% explanation -->
+      <div class="alert alert-info mt-24" data-enter>
+        <strong>How rolled-up holiday pay works:</strong> For irregular-hours and zero-hours workers, holiday pay accrues at <strong>12.07%</strong> of hours actually worked. This rate (1/8.33) represents 5.6 weeks' leave as a fraction of the remaining 46.4 working weeks in a year. From January 2024, paying this as a supplement on each payslip is the statutory method.
+      </div>
+
+      <!-- AD ZONE: In-content -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- PROSE: How holiday entitlement works -->
+      <div class="section-sm" data-enter>
+        <div class="t-eye mb-16">Calculation methodology</div>
+        <div class="prose">
+          <h2>How is holiday entitlement calculated in the UK?</h2>
+          <p>The minimum statutory holiday entitlement in the UK is set by the <strong>Working Time Regulations 1998</strong>. Every worker is entitled to <strong>5.6 weeks' paid annual leave per year</strong>. For a worker who works 5 days a week, this equals <strong>28 days</strong> — the statutory maximum for full-time workers.</p>
+
+          <h3>Full-time and part-time workers</h3>
+          <p>The formula is straightforward: <strong>5.6 × days worked per week</strong>, capped at 28 days. Part-time workers receive a pro-rata equivalent. For example, someone working 3 days per week is entitled to 5.6 × 3 = <strong>16.8 days</strong> per year. Entitlement cannot be less favourable for part-time workers than for comparable full-time workers.</p>
+          <ul>
+            <li><strong>5 days/week</strong> (full-time): 5.6 × 5 = 28 days</li>
+            <li><strong>4 days/week</strong>: 5.6 × 4 = 22.4 days</li>
+            <li><strong>3 days/week</strong>: 5.6 × 3 = 16.8 days</li>
+            <li><strong>2 days/week</strong>: 5.6 × 2 = 11.2 days</li>
+          </ul>
+
+          <h3>Irregular-hours and zero-hours workers (2024 rules)</h3>
+          <p>From <strong>1 January 2024</strong>, the accrual method for irregular-hours and part-year workers became the statutory standard. Holiday accrues at <strong>12.07% of hours actually worked</strong> in each pay period. The 12.07% rate is derived from 5.6 ÷ (52 − 5.6) = 5.6 ÷ 46.4.</p>
+          <p>Employers may choose to pay rolled-up holiday pay — adding the 12.07% supplement directly to each payslip rather than separately when leave is taken. This became lawful for irregular-hours workers from January 2024 under the Employment (Amendment of Retained EU Law) Act 2023, but it must be clearly identified as a separate line on the payslip.</p>
+
+          <h3>Bank holidays</h3>
+          <p>There is no automatic legal right to paid bank holidays on top of the 28-day statutory minimum. Employers may count bank holidays as part of the 28-day entitlement. Whether bank holidays are additional paid leave depends entirely on what the employment contract says.</p>
+
+          <div class="alert alert-warn"><strong>Important:</strong> This calculator provides general guidance under the Working Time Regulations 1998 and the 2024 amendments. It does not account for contractual arrangements that exceed the statutory minimum, sector-specific rules, or complex employment situations. For advice specific to your organisation, consult a qualified employment solicitor.</div>
+        </div>
+      </div>
+
+      <!-- AD ZONE: In-content -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section-sm" data-enter>
+        <div class="t-eye mb-16">FAQ</div>
+        <h2 class="display-sm" style="margin-bottom:24px">Frequently Asked Questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the minimum statutory holiday entitlement in the UK 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">The minimum statutory annual leave is <strong>5.6 weeks per year</strong>, equalling 28 days for a 5-day-a-week worker. This includes 4 weeks under the Working Time Regulations and 1.6 weeks additional leave. Bank holidays can be included within this 28-day total at the employer's discretion. Part-time workers receive a pro-rata equivalent.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How is holiday entitlement calculated for part-time workers?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Part-time workers receive holiday on a pro-rata basis: <strong>5.6 × days worked per week</strong>. Someone working 3 days per week gets 5.6 × 3 = <strong>16.8 days</strong> holiday per year. Entitlement for part-time workers must not be less favourable than for comparable full-time employees — the pro-rata principle ensures proportionate treatment.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How is holiday calculated for zero-hours or irregular workers in 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">From January 2024, irregular-hours workers accrue holiday at <strong>12.07% of actual hours worked</strong> in each pay period. Employers can use rolled-up holiday pay — adding 12.07% on top of each payslip, clearly identified as holiday pay. This became the statutory method for irregular and zero-hours workers under the Employment (Amendment of Retained EU Law) Act 2023.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What changed about holiday pay in January 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">From <strong>1 January 2024</strong>, the accrual-at-12.07% method became the statutory standard for irregular-hours workers. Rolled-up holiday pay — adding 12.07% to each payslip — also became lawful for this group after previously being discouraged under EU-derived case law. Employers using rolled-up pay must clearly identify it on the payslip as a separate payment.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can bank holidays be included in the 28-day statutory entitlement?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Yes. There is no automatic legal right to take bank holidays as extra leave on top of the 28-day minimum. The 28 days can include bank holidays if the contract provides for this. Whether bank holidays are granted in addition to the 28-day minimum is a contractual matter. Many employers do offer them on top, but this is not legally required.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What if a worker leaves part-way through the year — do they keep their accrued holiday?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Yes. On leaving, a worker is entitled to pay for all unused accrued holiday. For a full-year worker, entitlement accrues at roughly <strong>2.33 days per month</strong> (28 ÷ 12). If the worker has taken more leave than accrued, the employer may be able to reclaim overpaid holiday pay if the contract expressly allows it. Holiday pay on termination is calculated at the worker's normal daily rate.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is rolled-up holiday pay and when is it lawful?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Rolled-up holiday pay means adding a percentage (12.07%) to a worker's regular pay each period to cover their holiday pay, rather than paying a separate amount when leave is taken. From January 2024, this is lawful <strong>only for irregular-hours and part-year workers</strong> — not for workers with normal, regular hours. It must be clearly itemised on payslips as holiday pay rather than folded into the hourly rate.</div></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- AD ZONE: After FAQ -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- CROSS-PROMO -->
+      <div class="cross-strip uk-to-uae" style="margin-bottom:40px" data-enter>
+        <div>
+          <h3>Expanding to the UAE?</h3>
+          <p>Compare all UAE free zones side-by-side — setup costs, visa allocations, timelines and permitted business activities.</p>
+        </div>
+        <a href="/uae/free-zone-comparison" class="btn btn-white">Compare UAE Free Zones →</a>
+      </div>
+
+    </div><!-- /main column -->
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      <!-- Related tools -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Related UK Tools</div></div>
+        <div class="sidebar-card-body">
+          <a href="/uk/era-2024-contract-checker" class="sidebar-tool-link"><span class="stl-icon">⚖️</span>ERA 2024 Contract Checker</a>
+          <a href="/uk/zero-hours-rights-checker" class="sidebar-tool-link"><span class="stl-icon">📊</span>Zero-Hours Rights Checker</a>
+          <a href="/uae/free-zone-comparison" class="sidebar-tool-link"><span class="stl-icon">🏢</span>UAE Free Zone Comparison</a>
+          <a href="/uae/business-setup-cost-calculator" class="sidebar-tool-link"><span class="stl-icon">🧮</span>UAE Setup Cost Calculator</a>
+        </div>
+      </div>
+
+      <!-- Quick reference -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Quick Reference</div></div>
+        <div class="sidebar-card-body" style="gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-weight:600">Full-time max</span>
+            <span style="font-family:var(--mono);color:var(--text-3)">28 days</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-weight:600">Multiplier</span>
+            <span style="font-family:var(--mono);color:var(--text-3)">5.6 weeks</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-weight:600">Rolled-up rate</span>
+            <span style="font-family:var(--mono);color:var(--accent)">12.07%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-weight:600">In force</span>
+            <span style="font-family:var(--mono);color:var(--pass);font-size:11px">Jan 2024 ✓</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0">
+            <span style="font-weight:600">Legislation</span>
+            <span style="font-family:var(--mono);color:var(--text-3);font-size:11px">WTR 1998</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar ad -->
+      <div class="ad-zone ad-zone--sidebar" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement<br>300×250</div>
+      </div>
+
+    </aside>
+
+  </div><!-- /page-grid -->
+</div><!-- /container -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Compliance<span class="dot">.</span>Calc</div>
+        <p class="footer-tagline">Free professional compliance tools for UK employment law and UAE business setup. Not legal or financial advice.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">UK Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li>
+          <li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li>
+          <li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li>
+          <li><a href="/uk">All UK Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">UAE Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li>
+          <li><a href="/uae/business-setup-cost-calculator">Cost Calculator</a></li>
+          <li><a href="/uae">All UAE Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links">
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-note">&copy; 2026 ComplianceCalc &mdash; For informational purposes only. Not legal advice.</span>
+      <span class="footer-note">Updated September 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+let activeTab = 'full';
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).setAttribute('aria-selected','true');
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('resultGrid').classList.remove('visible');
+  document.getElementById('resultNote').classList.remove('visible');
+}
+function fmt2(n) { return n % 1 === 0 ? n.toFixed(0) : n.toFixed(1); }
+function fmtPay(n) { return '£' + n.toFixed(2); }
+function calcFullTime() {
+  const days = parseFloat(document.getElementById('daysPerWeek').value);
+  const weeks = parseFloat(document.getElementById('weeksPerYear').value) || 52;
+  const pay = parseFloat(document.getElementById('dailyPay').value) || 0;
+  if (!days || days <= 0 || days > 7) { alert('Please enter valid days per week (0.5–7).'); return; }
+  const entitlementDays = Math.min(5.6 * days, 5.6 * 5) * (weeks / 52);
+  const roundedDays = Math.ceil(entitlementDays * 2) / 2;
+  const hours = roundedDays * 8;
+  const payVal = pay > 0 ? roundedDays * pay : 0;
+  document.getElementById('r-days').textContent = fmt2(roundedDays);
+  document.getElementById('r-hours').textContent = fmt2(hours);
+  document.getElementById('r-pay').textContent = pay > 0 ? fmtPay(payVal) : 'N/A';
+  document.getElementById('resultGrid').classList.add('visible');
+  const note = document.getElementById('resultNote');
+  note.innerHTML = `<strong>How this was calculated:</strong> ${days} days/week × 5.6 weeks = <strong>${fmt2(Math.min(5.6 * days, 28))} days</strong> annual entitlement (maximum 28 days). ${weeks < 52 ? `Pro-rated for ${weeks} weeks: ${fmt2(roundedDays)} days. ` : ''}Bank holidays can be included within this total if your employer permits.`;
+  note.classList.add('visible');
+}
+function calcIrregular() {
+  const hours = parseFloat(document.getElementById('hoursWorked').value);
+  const rate = parseFloat(document.getElementById('hourlyRate').value);
+  const period = document.getElementById('periodType').value;
+  if (!hours || hours <= 0) { alert('Please enter hours worked.'); return; }
+  if (!rate || rate <= 0) { alert('Please enter hourly pay rate.'); return; }
+  const holidayHours = hours * 0.1207;
+  const holidayPay = hours * rate * 0.1207;
+  const totalPay = hours * rate;
+  const periodLabel = period === 'week' ? 'this week' : period === 'month' ? 'this month' : 'this year';
+  document.getElementById('r-days').textContent = fmt2(holidayHours / 8);
+  document.getElementById('r-hours').textContent = fmt2(holidayHours);
+  document.getElementById('r-pay').textContent = fmtPay(holidayPay);
+  document.getElementById('resultGrid').classList.add('visible');
+  const note = document.getElementById('resultNote');
+  note.innerHTML = `<strong>How this was calculated:</strong> ${hours} hours × 12.07% = <strong>${fmt2(holidayHours)} holiday hours</strong> (${fmt2(holidayHours / 8)} days). At £${rate.toFixed(2)}/hr, rolled-up holiday pay = <strong>${fmtPay(holidayPay)}</strong>. Total pay ${periodLabel} including holiday: <strong>${fmtPay(totalPay + holidayPay)}</strong>. Rolled-up holiday pay became lawful for irregular-hours workers from January 2024.`;
+  note.classList.add('visible');
+}
+</script>
+<script src="/shared/scripts.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ComplianceCalc — Free UK Employment & UAE Business Compliance Tools 2024</title>
+<meta name="description" content="Free professional compliance tools for UK employment law (ERA 2024) and UAE business setup. Compare free zones, calculate holiday entitlement, check zero-hours rights and more.">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="ComplianceCalc — Free UK & UAE Compliance Tools">
+<meta property="og:description" content="Professional-grade compliance calculators for UK employment law and UAE business setup. Free, instant, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"ComplianceCalc","url":"https://YOUR-DOMAIN.com","description":"Free UK employment law and UAE business setup compliance tools","potentialAction":{"@type":"SearchAction","target":"https://YOUR-DOMAIN.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"ComplianceCalc Tools","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Employment Rights Act 2024 Contract Compliance Checker","url":"https://YOUR-DOMAIN.com/uk/era-2024-contract-checker","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"UAE Free Zone Comparison Tool 2024","url":"https://YOUR-DOMAIN.com/uae/free-zone-comparison","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"AED"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Zero-Hours Contract Rights Checker","url":"https://YOUR-DOMAIN.com/uk/zero-hours-rights-checker","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"UK Holiday Entitlement Calculator 2024","url":"https://YOUR-DOMAIN.com/uk/holiday-entitlement-calculator","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"UAE Business Setup Cost Calculator 2024","url":"https://YOUR-DOMAIN.com/uae/business-setup-cost-calculator","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"AED"}}}]}
+</script>
+<style>
+/* ── Page-specific styles ── */
+.home-hero{
+  padding:clamp(56px,8vw,100px) 0 clamp(48px,7vw,80px);
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.home-hero::before{
+  content:'';
+  position:absolute;
+  top:-200px;right:-100px;
+  width:600px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(21,71,232,.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.hero-h1{
+  font-size:clamp(38px,6.5vw,80px);
+  font-weight:900;
+  letter-spacing:-.035em;
+  line-height:1.07;
+  margin-bottom:20px;
+  max-width:900px;
+}
+.hero-h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:clamp(16px,1.5vw,19px);color:var(--text-2);line-height:1.7;max-width:560px;margin-bottom:32px}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-proof{display:flex;align-items:center;gap:20px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap}
+.proof-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-3)}
+.proof-icon{font-size:16px}
+
+/* Tool section */
+.tools-section{padding:clamp(48px,6vw,80px) 0}
+.region-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:28px;
+  flex-wrap:wrap;
+}
+.region-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:3px;
+  margin-bottom:8px;
+}
+.region-label.uk{background:#fff0f1;color:var(--uk);border:1px solid rgba(192,21,47,.15)}
+.region-label.uae{background:#f0fff5;color:var(--uae);border:1px solid rgba(0,112,44,.15)}
+.region-title{font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.region-link{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:6px;transition:color .15s;white-space:nowrap}
+.region-link:hover{color:var(--accent)}
+
+/* Featured card (large) */
+.featured-card{
+  grid-column:span 2;
+  background:var(--bg-white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  flex-wrap:wrap;
+  transition:border-color .15s,box-shadow .15s;
+}
+.featured-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.featured-card-left{flex:1;min-width:240px}
+.featured-card-left .tc-title{font-size:clamp(18px,2.5vw,24px);margin-bottom:10px}
+.featured-card-left .tc-desc{font-size:15px;max-width:520px;line-height:1.65}
+.featured-card-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+
+/* Stats section */
+.stats-section{
+  background:var(--bg-ink);
+  color:#ededed;
+  padding:clamp(48px,6vw,72px) 0;
+}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06)}
+@media(max-width:640px){.stats-inner{grid-template-columns:repeat(2,1fr)}}
+.stat-block{padding:28px 24px;text-align:center;background:var(--bg-ink)}
+.stat-num{font-family:var(--mono);font-size:clamp(28px,5vw,52px);font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1}
+.stat-unit{font-family:var(--mono);font-size:14px;color:#6b6b7e;margin-top:2px}
+.stat-name{font-size:13px;color:#6b6b7e;margin-top:4px}
+
+/* About strip */
+.about-strip{
+  padding:clamp(48px,6vw,72px) 0;
+  border-top:1px solid var(--border);
+}
+.about-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(40px,5vw,80px);
+  align-items:center;
+}
+@media(max-width:720px){.about-inner{grid-template-columns:1fr}}
+.about-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+
+/* CTA section */
+.cta-section{
+  background:var(--bg-white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:clamp(40px,5vw,64px);
+  text-align:center;
+  margin:0 0 clamp(48px,6vw,72px);
+}
+.cta-section h2{font-size:clamp(24px,3.5vw,40px);letter-spacing:-.03em;margin-bottom:12px}
+.cta-section p{color:var(--text-2);max-width:500px;margin:0 auto 28px;font-size:15px;line-height:1.7}
+
+@media(max-width:680px){
+  .featured-card{grid-column:span 1}
+  .hero-ctas .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="ComplianceCalc home">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="/uk" class="nav-link">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uk/era-2024-contract-checker" class="nav-cta">ERA 2024 Checker</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+<!-- HERO -->
+<section class="home-hero">
+  <div class="container">
+    <div class="hero-kicker">
+      <span class="badge badge-uk"><span class="dot"></span>UK Employment Law</span>
+      <span class="badge badge-uae"><span class="dot"></span>UAE Business Setup</span>
+      <span class="badge badge-blue">Free — No Signup</span>
+    </div>
+    <h1 class="hero-h1" data-enter>Professional compliance tools,<br><em>free and instant.</em></h1>
+    <p class="hero-sub" data-enter data-enter-delay="1">Check UK employment contracts against ERA 2024, compare UAE free zones side-by-side, and calculate exact costs — in seconds. Used by HR teams and consultants.</p>
+    <div class="hero-ctas" data-enter data-enter-delay="2">
+      <a href="/uk/era-2024-contract-checker" class="btn btn-primary">ERA 2024 Contract Checker →</a>
+      <a href="/uae/free-zone-comparison" class="btn btn-outline">Compare UAE Free Zones →</a>
+    </div>
+    <div class="hero-proof" data-enter data-enter-delay="3">
+      <div class="proof-item"><span class="proof-icon">✓</span>5 professional tools</div>
+      <div class="proof-item"><span class="proof-icon">✓</span>Updated September 2026</div>
+      <div class="proof-item"><span class="proof-icon">✓</span>Not legal advice — always verify with a solicitor</div>
+      <div class="proof-item"><span class="proof-icon">✓</span>No data stored</div>
+    </div>
+  </div>
+</section>
+
+<!-- AD ZONE: Leaderboard -->
+<div class="container">
+  <div class="ad-zone ad-zone--leaderboard" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · 728×90</div>
+  </div>
+</div>
+
+<!-- UK TOOLS -->
+<section class="tools-section">
+  <div class="container">
+    <div class="region-header" data-enter>
+      <div>
+        <div class="region-label uk">&#127463;&#127479; United Kingdom</div>
+        <h2 class="region-title">UK Employment Law Tools</h2>
+      </div>
+      <a href="/uk" class="region-link">View all UK tools →</a>
+    </div>
+    <div class="section-grid section-grid-2" style="grid-template-columns:1fr 1fr 1fr">
+
+      <a href="/uk/era-2024-contract-checker" class="featured-card" style="grid-column:span 3;color:inherit" data-enter>
+        <div class="featured-card-left">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <span class="badge badge-uk">ERA 2024 — Flagship Tool</span>
+            <span class="badge badge-pass"><span class="dot"></span>In force</span>
+          </div>
+          <h3 class="tc-title">Employment Rights Act 2024 Contract Compliance Checker</h3>
+          <p class="tc-desc">7-step compliance audit covering zero-hours, flexible working, maternity protection, neonatal leave, harassment prevention, fire &amp; rehire, and collective redundancy. Get an instant score with specific action items.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <span class="tc-link">Run compliance check →</span>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">~2 minutes</span>
+          </div>
+        </div>
+        <div class="featured-card-right">
+          <div style="text-align:center;padding:20px 28px;background:var(--bg-muted);border-radius:var(--radius-lg);border:1px solid var(--border)">
+            <div style="font-family:var(--mono);font-size:48px;font-weight:700;letter-spacing:-.04em;color:var(--pass);line-height:1">97%</div>
+            <div style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-top:4px">Example score</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/uk/zero-hours-rights-checker" class="tool-card" style="color:inherit" data-enter data-enter-delay="1">
+        <div class="tc-icon">📊</div>
+        <span class="badge badge-warn" style="align-self:flex-start">Expected 2026</span>
+        <h3 class="tc-title">Zero-Hours Contract Rights Checker</h3>
+        <p class="tc-desc">Find out if a worker qualifies for the right to request guaranteed hours under ERA 2024 after 12 weeks of regular work.</p>
+        <span class="tc-link">Check eligibility →</span>
+      </a>
+
+      <a href="/uk/holiday-entitlement-calculator" class="tool-card" style="color:inherit" data-enter data-enter-delay="2">
+        <div class="tc-icon">📅</div>
+        <span class="badge badge-pass" style="align-self:flex-start">Updated Jan 2024</span>
+        <h3 class="tc-title">UK Holiday Entitlement Calculator 2024</h3>
+        <p class="tc-desc">Calculate statutory holiday for full-time, part-time and irregular/zero-hours workers. Includes the 12.07% rolled-up holiday pay method, now lawful from January 2024.</p>
+        <span class="tc-link">Calculate →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- AD ZONE: Mid-page -->
+<div class="container">
+  <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+  </div>
+</div>
+
+<!-- UAE TOOLS -->
+<section class="tools-section" style="padding-top:0">
+  <div class="container">
+    <div class="region-header" data-enter>
+      <div>
+        <div class="region-label uae">&#127462;&#127466; United Arab Emirates</div>
+        <h2 class="region-title">UAE Business Setup Tools</h2>
+      </div>
+      <a href="/uae" class="region-link">View all UAE tools →</a>
+    </div>
+    <div class="section-grid section-grid-2" style="grid-template-columns:1fr 1fr">
+
+      <a href="/uae/free-zone-comparison" class="featured-card" style="grid-column:span 2;color:inherit" data-enter>
+        <div class="featured-card-left">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <span class="badge badge-uae">UAE Free Zones</span>
+            <span class="badge badge-blue">12 zones compared</span>
+          </div>
+          <h3 class="tc-title">UAE Free Zone Comparison Tool 2024</h3>
+          <p class="tc-desc">Compare DMCC, IFZA, RAKEZ, DIFC, ADGM, Ajman Free Zone and 6 more side-by-side. Filter by emirate, budget (AED), business activity and visa requirements. Live pricing data, last updated September 2026.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <span class="tc-link">Compare free zones →</span>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Updated monthly</span>
+          </div>
+        </div>
+        <div class="featured-card-right">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="padding:12px 14px;background:var(--bg-muted);border-radius:var(--radius);border:1px solid var(--border);text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--uae)">12</div>
+              <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-top:2px">Free zones</div>
+            </div>
+            <div style="padding:12px 14px;background:var(--bg-muted);border-radius:var(--radius);border:1px solid var(--border);text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text)">7</div>
+              <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-top:2px">Emirates</div>
+            </div>
+            <div style="padding:12px 14px;background:var(--bg-muted);border-radius:var(--radius);border:1px solid var(--border);text-align:center">
+              <div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">AED 5.7k</div>
+              <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-top:2px">Min. cost</div>
+            </div>
+            <div style="padding:12px 14px;background:var(--bg-muted);border-radius:var(--radius);border:1px solid var(--border);text-align:center">
+              <div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">6</div>
+              <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-top:2px">Max visas</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/uae/business-setup-cost-calculator" class="tool-card" style="grid-column:span 2;color:inherit;flex-direction:row;align-items:center;gap:24px" data-enter data-enter-delay="1">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div class="tc-icon">💰</div>
+            <span class="badge badge-blue">Full cost breakdown</span>
+          </div>
+          <h3 class="tc-title" style="margin-bottom:8px">UAE Business Setup Cost Calculator 2024</h3>
+          <p class="tc-desc">Select your free zone, number of visas (1–6) and office type to get a full itemised breakdown: license fee, registration, establishment card, office rent and visa costs. Covers 12 free zones.</p>
+        </div>
+        <div style="flex-shrink:0">
+          <span class="tc-link">Calculate your costs →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" data-enter>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="t-eye" style="justify-content:center;color:#555565;margin-bottom:12px">Why ComplianceCalc</div>
+      <h2 style="font-size:clamp(24px,3.5vw,40px);letter-spacing:-.03em;color:#fff">The numbers behind the tools</h2>
+    </div>
+    <div class="stats-inner">
+      <div class="stat-block">
+        <div class="stat-num">5</div>
+        <div class="stat-name">Professional tools</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">12</div>
+        <div class="stat-name">UAE free zones covered</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">8</div>
+        <div class="stat-name">ERA 2024 compliance areas</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">0</div>
+        <div class="stat-name">Data stored about you</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip section">
+  <div class="container">
+    <div class="about-inner">
+      <div data-enter>
+        <div class="t-eye mb-16">About these tools</div>
+        <h2 class="display-sm" style="margin-bottom:16px">Built for precision,<br>not approximation.</h2>
+        <div class="prose">
+          <p>ComplianceCalc tools are built from primary sources: the Employment Rights Act 2024 text, ACAS guidance, HMRC calculations, and official UAE free zone authority data — not secondary summaries or hearsay.</p>
+          <p>Every tool is updated when legislation or pricing changes. UAE free zone cost data is verified monthly against official authority websites. UK law tools are reviewed against ACAS updates and secondary legislation.</p>
+        </div>
+        <div class="about-badges">
+          <span class="pill">Not legal advice</span>
+          <span class="pill">Primary sources</span>
+          <span class="pill">Monthly updates</span>
+          <span class="pill">GDPR-friendly — no tracking</span>
+        </div>
+      </div>
+      <div data-enter data-enter-delay="1">
+        <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow)">
+          <div class="t-eye mb-16">Quick reference</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:14px;font-weight:600">ERA 2024 Royal Assent</span>
+              <span style="font-family:var(--mono);font-size:12px;color:var(--text-3)">Oct 2024</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:14px;font-weight:600">Neonatal Care Leave</span>
+              <span style="font-family:var(--mono);font-size:12px;color:var(--pass)">In force Apr 2025</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:14px;font-weight:600">Zero-hours guaranteed hours</span>
+              <span style="font-family:var(--mono);font-size:12px;color:var(--warn)">Expected 2026</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:14px;font-weight:600">Day-one dismissal rights</span>
+              <span style="font-family:var(--mono);font-size:12px;color:var(--warn)">Expected 2026</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0">
+              <span style="font-size:14px;font-weight:600">UAE data last updated</span>
+              <span style="font-family:var(--mono);font-size:12px;color:var(--text-3)">Sep 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD ZONE: Bottom -->
+<div class="container">
+  <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="container">
+  <div class="cta-section" data-enter>
+    <div class="t-eye" style="justify-content:center;margin-bottom:16px">Start now — free</div>
+    <h2>Start your compliance check</h2>
+    <p>Both tools take under 2 minutes. No account required. Results stay in your browser only.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+      <a href="/uk/era-2024-contract-checker" class="btn btn-primary">Check ERA 2024 Compliance →</a>
+      <a href="/uae/free-zone-comparison" class="btn btn-outline">Compare UAE Free Zones →</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Compliance<span class="dot">.</span>Calc</div>
+        <p class="footer-tagline">Free professional compliance tools for UK employment law and UAE business setup. Not legal or financial advice.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">UK Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li>
+          <li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li>
+          <li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li>
+          <li><a href="/uk">All UK Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">UAE Tools</div>
+        <ul class="footer-links">
+          <li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li>
+          <li><a href="/uae/business-setup-cost-calculator">Cost Calculator</a></li>
+          <li><a href="/uae">All UAE Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links">
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-note">&copy; 2026 ComplianceCalc &mdash; For informational purposes only. Not legal or financial advice.</span>
+      <span class="footer-note">Updated September 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared/scripts.js" defer></script>
+</body>
+</html>

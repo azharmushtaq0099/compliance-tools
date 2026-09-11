@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employment Rights Act 2024 Contract Compliance Checker | Free Tool</title>
+<meta name="description" content="Check if your employment contracts comply with the UK Employment Rights Act 2024. Free instant compliance checker — zero-hours, flexible working, harassment prevention, neonatal leave and more.">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/uk/era-2024-contract-checker">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Employment Rights Act 2024 Contract Compliance Checker","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Check if your employment contracts and policies comply with the UK Employment Rights Act 2024. Covers zero-hours contracts, flexible working rights, harassment prevention, neonatal leave, and more.","url":"https://YOUR-DOMAIN.com/uk/era-2024-contract-checker","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"inLanguage":"en-GB","dateModified":"2026-09-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When did the Employment Rights Act 2024 come into force?","acceptedAnswer":{"@type":"Answer","text":"The Employment Rights Act 2024 received Royal Assent in October 2024. Different provisions come into force on different dates. The flexible working day-one right took effect in April 2024. Worker protection from third-party harassment took effect October 2024. Neonatal Care Leave became law from April 2025. Zero-hours guaranteed hours rights and day-one unfair dismissal protection are expected in 2026, subject to secondary legislation."}},{"@type":"Question","name":"What is the zero-hours guaranteed hours right under ERA 2024?","acceptedAnswer":{"@type":"Answer","text":"Under ERA 2024, workers on zero-hours or variable-hours contracts who work regular predictable hours for 12 consecutive weeks will have the right to request a guaranteed-hours contract reflecting those hours. Employers must offer this contract or provide valid business reasons. This applies to agency workers too. Expected implementation: 2026."}},{"@type":"Question","name":"Does the Employment Rights Act 2024 affect small businesses?","acceptedAnswer":{"@type":"Answer","text":"Yes. ERA 2024 applies to all UK employers regardless of size. Small businesses must comply with flexible working day-one rights (in force April 2024), neonatal care leave (in force April 2025), and enhanced harassment prevention duties (in force October 2024). Zero-hours guaranteed hours provisions will apply to all employers when in force."}},{"@type":"Question","name":"What is the fire and rehire restriction under ERA 2024?","acceptedAnswer":{"@type":"Answer","text":"ERA 2024 makes dismissal for the purpose of re-engaging an employee on worse terms automatically unfair, except in very narrow circumstances where the employer faces genuine financial difficulties threatening business survival, has genuinely consulted with trade unions or employee representatives, and the changes are necessary to address those difficulties."}},{"@type":"Question","name":"What are the new employer duties on harassment prevention?","acceptedAnswer":{"@type":"Answer","text":"Since October 2024, the Worker Protection (Amendment of Equality Act 2010) Act 2023 requires employers to take reasonable steps to prevent sexual harassment of their workers, including by third parties such as customers or clients. The EHRC can take enforcement action. Employers should have a written harassment prevention policy, provide training, and have clear reporting procedures."}},{"@type":"Question","name":"What is Neonatal Care Leave under ERA 2024?","acceptedAnswer":{"@type":"Answer","text":"Neonatal Care Leave is a new statutory right in force from April 2025. Parents of babies who require neonatal care within the first 28 days of life for at least 7 days are entitled to up to 12 weeks of paid neonatal care leave. This is in addition to maternity, paternity and shared parental leave. It is a day-one right."}},{"@type":"Question","name":"What changes did ERA 2024 make to collective redundancy rules?","acceptedAnswer":{"@type":"Answer","text":"ERA 2024 extends collective redundancy consultation obligations so that the 20+ redundancy threshold is calculated across an employer's entire operation, not just a single establishment. Previously, an employer could dismiss 19 workers at each of multiple sites without triggering collective consultation. Now total dismissals across all sites are counted."}},{"@type":"Question","name":"Does ERA 2024 introduce day-one unfair dismissal rights?","acceptedAnswer":{"@type":"Answer","text":"Yes, ERA 2024 removes the two-year qualifying period for unfair dismissal claims, giving employees day-one protection. However, this provision is not yet in force. Expected 2026 via secondary legislation. A probationary period regime is being developed to allow employers to manage new hires during an initial period."}}]}
+</script>
+<style>
+.tool-header{padding:clamp(32px,4vw,52px) 0 24px;border-bottom:1px solid var(--border)}
+.score-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:20px 24px;
+  text-align:center;
+}
+.score-ring-svg{transform:rotate(-90deg)}
+.score-ring-bg{stroke:var(--border);fill:none;stroke-width:4}
+.score-ring-arc{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:0 213;transition:stroke-dasharray 1.4s cubic-bezier(.22,1,.36,1),stroke .3s}
+.score-ring-num{font-family:var(--mono);font-size:20px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.score-ring-desc{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3)}
+
+/* Step nav overflow */
+.step-bar{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:12px;
+  padding-top:16px;
+  padding-left:24px;
+  padding-right:24px;
+  border-bottom:1px solid var(--border);
+  background:var(--bg);
+}
+.step-bar::-webkit-scrollbar{height:2px}
+.step-bar::-webkit-scrollbar-thumb{background:var(--border)}
+
+/* Panel question layout */
+.q-section-hd{margin-bottom:24px}
+.q-section-context{
+  padding:12px 14px;
+  background:var(--accent-dim);
+  border-left:2px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:13px;
+  color:var(--text-2);
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+/* Results redesign */
+.results-card{background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.results-header{padding:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.results-body{padding:24px}
+.results-summary{font-size:14px;color:var(--text-2);line-height:1.75;padding:16px 20px;background:var(--bg-muted);border-radius:var(--radius);margin-bottom:20px}
+.results-summary a{color:var(--accent);text-decoration:underline}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" role="navigation" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="/uk" class="nav-link active">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uae/free-zone-comparison" class="nav-cta">UAE Free Zones</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="sep">›</li>
+        <li><a href="/uk">UK Employment Law</a></li>
+        <li class="sep">›</li>
+        <li>ERA 2024 Contract Compliance Checker</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+<div class="tool-header">
+  <div class="container">
+    <div class="t-eye uk mb-16">UK Employment Law Tool</div>
+    <h1 class="display" style="max-width:820px;margin-bottom:16px">Employment Rights Act 2024<br>Contract Compliance Checker</h1>
+    <p class="lead" style="margin-bottom:20px">Check if your employment contracts and HR policies comply with the UK's most significant employment law change in 30 years. Get an instant score with specific action items — free, no signup required.</p>
+    <div class="flex flex-wrap gap-8">
+      <span class="badge badge-uk"><span class="dot"></span>ERA 2024</span>
+      <span class="badge badge-blue">Free &amp; instant</span>
+      <span class="badge badge-neutral">Updated Sept 2026</span>
+      <span class="badge badge-neutral">Not legal advice</span>
+    </div>
+  </div>
+</div>
+
+<!-- AD ZONE -->
+<div class="container" style="padding-top:20px">
+  <div class="ad-zone ad-zone--leaderboard" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · 728×90</div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:24px;padding-bottom:40px">
+  <div class="page-grid">
+    <!-- MAIN -->
+    <div>
+      <!-- Step indicator -->
+      <div class="step-bar" role="tablist" aria-label="Checker progress">
+        <div style="display:flex;align-items:center;gap:0;min-width:max-content">
+          <div class="step-item active" id="si-1" role="tab"><div class="step-num">1</div><span>Zero-Hours</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-2" role="tab"><div class="step-num">2</div><span>Flexible Working</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-3" role="tab"><div class="step-num">3</div><span>Maternity</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-4" role="tab"><div class="step-num">4</div><span>Neonatal</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-5" role="tab"><div class="step-num">5</div><span>Harassment</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-6" role="tab"><div class="step-num">6</div><span>Fire &amp; Rehire</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-7" role="tab"><div class="step-num">7</div><span>Redundancy</span></div>
+          <div class="step-sep"></div>
+          <div class="step-item pending" id="si-8" role="tab"><div class="step-num">✓</div><span>Results</span></div>
+        </div>
+      </div>
+
+      <!-- Tool widget -->
+      <div id="toolContainer" class="tool-widget" style="border-top-left-radius:0;border-top-right-radius:0;border-top:none">
+
+        <!-- Panel 1: Zero-hours -->
+        <div id="panel-1" class="panel active">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Zero-Hours &amp; Variable-Hours Contracts</h2>
+              <div class="q-section-context">ERA 2024 gives workers on zero-hours contracts the right to request guaranteed hours after 12 weeks of regular work. This provision is expected to come into force in 2026.</div>
+            </div>
+            <div class="panel-question">Does your organisation use zero-hours or variable-hours contracts?</div>
+            <div class="radio-group" data-name="q1">
+              <label class="radio-opt"><input type="radio" name="q1" value="no"><div class="radio-text"><div class="radio-main">No — we do not use zero-hours or variable-hours contracts</div><div class="radio-sub">No action needed for this section</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q1" value="yes-managed"><div class="radio-text"><div class="radio-main">Yes — and we have a policy to review and offer guaranteed hours when workers reach 12 weeks of regular work</div><div class="radio-sub">Proactively managing compliance</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q1" value="yes-no-policy"><div class="radio-text"><div class="radio-main">Yes — and we do not currently have a guaranteed hours review process</div><div class="radio-sub">Action required before 2026 implementation</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-primary" id="next-1" disabled onclick="nextStep(1)">Next: Flexible Working →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 1 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 2: Flexible Working -->
+        <div id="panel-2" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Flexible Working Day-One Right</h2>
+              <div class="q-section-context">Since April 2024, employees have the right to request flexible working from their first day of employment. The two-request-per-year limit and 3-month response deadline apply.</div>
+            </div>
+            <div class="panel-question">Can employees request flexible working from day one of employment?</div>
+            <div class="radio-group" data-name="q2">
+              <label class="radio-opt"><input type="radio" name="q2" value="yes"><div class="radio-text"><div class="radio-main">Yes — our policy allows day-one flexible working requests</div><div class="radio-sub">Compliant since April 2024</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q2" value="old-policy"><div class="radio-text"><div class="radio-main">No — our policy still requires 26 weeks of service before a request can be made</div><div class="radio-sub">Non-compliant — update required immediately</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q2" value="no-policy"><div class="radio-text"><div class="radio-main">We have no written flexible working policy</div><div class="radio-sub">Non-compliant — policy must be created</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(2)">← Back</button>
+            <button class="btn btn-primary" id="next-2" disabled onclick="nextStep(2)">Next: Maternity →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 2 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 3: Maternity -->
+        <div id="panel-3" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Pregnancy &amp; Maternity Protection</h2>
+              <div class="q-section-context">ERA 2024 extends redundancy protection to cover employees from the point pregnancy is declared through to 18 months after the end of maternity, adoption, or shared parental leave.</div>
+            </div>
+            <div class="panel-question">Does your redundancy procedure include enhanced protections for employees during and after maternity/adoption/shared parental leave?</div>
+            <div class="radio-group" data-name="q3">
+              <label class="radio-opt"><input type="radio" name="q3" value="full"><div class="radio-text"><div class="radio-main">Yes — our procedure covers the full 18-month post-return protection period</div><div class="radio-sub">Fully compliant</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q3" value="partial"><div class="radio-text"><div class="radio-main">Partially — we protect during leave but not through the 18-month post-return period</div><div class="radio-sub">Partial compliance — update required</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q3" value="none"><div class="radio-text"><div class="radio-main">No — our redundancy procedure does not include specific maternity/parental protections</div><div class="radio-sub">Non-compliant — immediate action required</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(3)">← Back</button>
+            <button class="btn btn-primary" id="next-3" disabled onclick="nextStep(3)">Next: Neonatal →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 3 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 4: Neonatal -->
+        <div id="panel-4" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Neonatal Care Leave</h2>
+              <div class="q-section-context">Neonatal Care Leave is in force from April 2025. Parents of babies who require neonatal hospitalisation within the first 28 days of life for at least 7 days are entitled to up to 12 weeks of paid leave. This is a day-one right.</div>
+            </div>
+            <div class="panel-question">Does your organisation have a written Neonatal Care Leave policy in place?</div>
+            <div class="radio-group" data-name="q4">
+              <label class="radio-opt"><input type="radio" name="q4" value="yes"><div class="radio-text"><div class="radio-main">Yes — we have a written Neonatal Care Leave policy implemented</div><div class="radio-sub">Compliant since April 2025</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q4" value="in-progress"><div class="radio-text"><div class="radio-main">In progress — we are drafting a policy but it is not yet implemented</div><div class="radio-sub">Non-compliant until implemented — this was due April 2025</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q4" value="no"><div class="radio-text"><div class="radio-main">No — we have no Neonatal Care Leave policy</div><div class="radio-sub">Non-compliant since April 2025 — immediate action required</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(4)">← Back</button>
+            <button class="btn btn-primary" id="next-4" disabled onclick="nextStep(4)">Next: Harassment →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 4 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 5: Harassment -->
+        <div id="panel-5" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Third-Party Harassment Prevention</h2>
+              <div class="q-section-context">Since October 2024, employers must take reasonable steps to prevent sexual harassment of workers by third parties (clients, customers, contractors). The EHRC can take enforcement action against non-compliant employers.</div>
+            </div>
+            <div class="panel-question">Does your written harassment policy cover third-party harassment (by clients, customers or contractors)?</div>
+            <div class="radio-group" data-name="q5">
+              <label class="radio-opt"><input type="radio" name="q5" value="full"><div class="radio-text"><div class="radio-main">Yes — our policy includes third-party harassment, training, and reporting procedures</div><div class="radio-sub">Fully compliant — comprehensive approach</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q5" value="partial"><div class="radio-text"><div class="radio-main">Partially — we have a harassment policy but it does not specifically address third parties</div><div class="radio-sub">Partial compliance — update required since October 2024</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q5" value="none"><div class="radio-text"><div class="radio-main">No — we have no written harassment policy</div><div class="radio-sub">Non-compliant since October 2024 — EHRC enforcement risk</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(5)">← Back</button>
+            <button class="btn btn-primary" id="next-5" disabled onclick="nextStep(5)">Next: Fire &amp; Rehire →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 5 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 6: Fire & Rehire -->
+        <div id="panel-6" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Fire and Rehire</h2>
+              <div class="q-section-context">ERA 2024 makes dismissal for the purpose of re-engaging an employee on worse terms automatically unfair dismissal in almost all circumstances. The narrow exception covers genuine financial emergency threatening business survival.</div>
+            </div>
+            <div class="panel-question">What is your organisation's position on fire-and-rehire practices?</div>
+            <div class="radio-group" data-name="q6">
+              <label class="radio-opt"><input type="radio" name="q6" value="never"><div class="radio-text"><div class="radio-main">We have never used fire-and-rehire and do not plan to</div><div class="radio-sub">No exposure</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q6" value="aware-restricted"><div class="radio-text"><div class="radio-main">We have reviewed our approach and updated it in line with ERA 2024 restrictions</div><div class="radio-sub">Compliant — updated approach</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q6" value="consider"><div class="radio-text"><div class="radio-main">We are actively considering or planning a fire-and-rehire exercise</div><div class="radio-sub">Significant legal risk — stop and seek advice immediately</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(6)">← Back</button>
+            <button class="btn btn-primary" id="next-6" disabled onclick="nextStep(6)">Next: Redundancy →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 6 of 7</span>
+          </div>
+        </div>
+
+        <!-- Panel 7: Redundancy + Day-one dismissal -->
+        <div id="panel-7" class="panel">
+          <div class="tool-widget-body">
+            <div class="q-section-hd">
+              <h2 class="panel-section-title">Collective Redundancy &amp; Day-One Dismissal</h2>
+              <div class="q-section-context">ERA 2024 extends collective redundancy consultation thresholds to be calculated across the entire employer group — not just individual establishments. Day-one unfair dismissal rights are also expected in 2026.</div>
+            </div>
+            <div class="panel-question">Does your collective redundancy procedure count redundancies across all sites or establishment groupings?</div>
+            <div class="radio-group" data-name="q7a">
+              <label class="radio-opt"><input type="radio" name="q7a" value="yes"><div class="radio-text"><div class="radio-main">Yes — our procedure counts redundancies across the entire organisation / group</div><div class="radio-sub">Compliant with ERA 2024 group-wide counting requirement</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q7a" value="no"><div class="radio-text"><div class="radio-main">No — we still use per-establishment counting only</div><div class="radio-sub">Non-compliant — update required</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q7a" value="single"><div class="radio-text"><div class="radio-main">We operate from a single establishment — group-wide counting does not apply</div><div class="radio-sub">No action needed for group counting</div></div></label>
+            </div>
+            <div class="divider"></div>
+            <div class="panel-question" style="margin-top:8px">Is your organisation preparing for day-one unfair dismissal rights (expected 2026)?</div>
+            <div class="radio-group" data-name="q7b">
+              <label class="radio-opt"><input type="radio" name="q7b" value="yes"><div class="radio-text"><div class="radio-main">Yes — we have reviewed our probationary period and new hire management processes</div><div class="radio-sub">Proactive preparation</div></div></label>
+              <label class="radio-opt"><input type="radio" name="q7b" value="no"><div class="radio-text"><div class="radio-main">Not yet — we have not yet reviewed processes for day-one dismissal rights</div><div class="radio-sub">Recommended to begin reviewing ahead of 2026</div></div></label>
+            </div>
+          </div>
+          <div class="tool-widget-footer">
+            <button class="btn btn-outline btn-sm" onclick="prevStep(7)">← Back</button>
+            <button class="btn btn-primary" id="next-7" disabled onclick="showResults()">See My Results →</button>
+            <span style="font-family:var(--mono);font-size:11px;color:var(--text-3)">Step 7 of 7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS PANEL -->
+      <div id="resultsPanel" class="result-panel">
+        <div class="results-card">
+          <div class="results-header">
+            <div style="display:flex;align-items:center;gap:16px;flex:1">
+              <!-- SVG score ring -->
+              <div style="position:relative;flex-shrink:0">
+                <svg class="score-ring-svg" width="88" height="88" viewBox="0 0 88 88" aria-hidden="true">
+                  <circle class="score-ring-bg" cx="44" cy="44" r="34"/>
+                  <circle class="score-ring-arc" id="scoreArc" cx="44" cy="44" r="34" stroke="#059669"/>
+                </svg>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column">
+                  <div class="score-ring-num" id="scoreNum">—%</div>
+                </div>
+              </div>
+              <div id="scoreTextWrap">
+                <div style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">ERA 2024 Compliance Score</div>
+                <div style="font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.025em;color:var(--text)" id="scoreDesc">Calculating...</div>
+              </div>
+            </div>
+            <button onclick="restartChecker()" class="btn btn-outline btn-sm">Start Over</button>
+          </div>
+          <div class="results-body">
+            <div class="results-summary" id="resultsSummary"></div>
+            <div class="t-eye mb-16">Detailed breakdown</div>
+            <div class="result-rows" id="resultSections"></div>
+          </div>
+        </div>
+
+        <!-- AD ZONE: Post results -->
+        <div class="ad-zone ad-zone--in-content" style="margin-top:24px" aria-label="Advertisement">
+          <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+        </div>
+      </div>
+
+      <!-- POST-TOOL CONTENT -->
+      <div class="section-sm">
+        <div class="t-eye mb-16">About ERA 2024</div>
+        <div class="prose">
+          <h2>What is the Employment Rights Act 2024?</h2>
+          <p>The Employment Rights Act 2024 (ERA 2024) is the most significant piece of UK employment legislation in over 30 years. Receiving Royal Assent in October 2024, it introduces sweeping changes to employment rights with a phased implementation schedule running from 2024 to 2026.</p>
+          <p>The Act covers eight main areas: zero-hours contract rights, flexible working, pregnancy and maternity protection, neonatal care leave, harassment prevention, fire-and-rehire restrictions, collective redundancy, and day-one unfair dismissal.</p>
+
+          <h3>Implementation timeline</h3>
+          <ul>
+            <li><strong>April 2024:</strong> Day-one right to request flexible working</li>
+            <li><strong>October 2024:</strong> Employer duty to prevent third-party sexual harassment</li>
+            <li><strong>In force:</strong> Fire-and-rehire automatically unfair dismissal restrictions</li>
+            <li><strong>In force:</strong> Group-wide collective redundancy consultation thresholds</li>
+            <li><strong>April 2025:</strong> Neonatal Care Leave (up to 12 weeks, day-one right)</li>
+            <li><strong>2026 (expected):</strong> Zero-hours guaranteed hours right after 12 weeks</li>
+            <li><strong>2026 (expected):</strong> Day-one unfair dismissal protection</li>
+          </ul>
+
+          <h2>How does the compliance checker work?</h2>
+          <p>The checker covers the seven compliance areas most relevant to employers' current contracts and policies. For each area, you select the option that best describes your current position. The tool calculates a compliance score (0–100%) and produces a breakdown showing which areas are fully compliant, which need updating, and which require immediate action.</p>
+          <p>The scoring is weighted: areas already in force (flexible working, harassment prevention, neonatal leave) carry full weight. Areas with imminent implementation (zero-hours, day-one dismissal) are included with appropriate weighting to allow for advance preparation.</p>
+
+          <div class="alert alert-info"><strong>Important:</strong> This tool provides general guidance based on the Employment Rights Act 2024 as enacted and ACAS published guidance. It does not account for your specific contractual arrangements, workforce demographics, or sector-specific rules. Always consult a qualified employment law solicitor for advice specific to your organisation.</div>
+
+          <h2>What action should I take after running the checker?</h2>
+          <p>For any area marked as <strong>fail</strong> (red): these represent current non-compliance with provisions already in force. Prioritise these immediately. Tribunal risk is live.</p>
+          <p>For areas marked as <strong>warn</strong> (amber): these are partially compliant or represent provisions coming into force soon. Schedule these for the next HR policy review cycle.</p>
+          <p>For areas marked as <strong>pass</strong> (green): your current approach meets the requirement. Review again when secondary legislation for 2026 provisions is published.</p>
+          <p>Free official resources: <a href="https://www.acas.org.uk" rel="noopener" style="color:var(--accent)">ACAS.org.uk</a> and <a href="https://www.gov.uk/employment-rights-bill" rel="noopener" style="color:var(--accent)">GOV.UK Employment Rights Bill</a>.</p>
+        </div>
+      </div>
+
+      <!-- AD ZONE: Mid content -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section-sm">
+        <div class="t-eye mb-16">FAQ</div>
+        <h2 class="display-sm" style="margin-bottom:24px">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">When did the Employment Rights Act 2024 come into force?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">The Employment Rights Act 2024 received Royal Assent in October 2024. Different provisions come into force on different dates. The day-one flexible working right took effect April 2024. Third-party harassment prevention duty took effect October 2024. Neonatal Care Leave became law from April 2025. Zero-hours guaranteed hours rights and day-one unfair dismissal protection are expected in 2026.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the zero-hours guaranteed hours right under ERA 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Under ERA 2024, workers on zero-hours or variable-hours contracts who work regular predictable hours for 12 consecutive weeks will have the right to request a guaranteed-hours contract reflecting those hours. Employers must offer this contract or provide valid business reasons. This applies to agency workers too. Expected implementation: 2026.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does ERA 2024 affect small businesses?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Yes. ERA 2024 applies to all UK employers regardless of size. Small businesses must comply with flexible working day-one rights (in force), neonatal care leave (in force April 2025), and enhanced harassment prevention duties (in force October 2024). Zero-hours provisions will apply to businesses of all sizes when they come into force.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the fire and rehire restriction under ERA 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">ERA 2024 makes dismissal for the purpose of re-engaging an employee on worse terms automatically unfair, except in very narrow circumstances where the employer faces genuine financial difficulties threatening business survival, has genuinely consulted with trade unions or employee representatives, and the changes are necessary to address those difficulties.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What are the new employer duties on harassment prevention?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Since October 2024, employers must take reasonable steps to prevent sexual harassment of their workers by third parties such as customers or clients. The EHRC can take enforcement action. Employers should have a written harassment prevention policy, provide training, and have clear reporting procedures.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is Neonatal Care Leave?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Neonatal Care Leave is a new statutory right in force from April 2025. Parents of babies who require neonatal care (hospitalisation) within the first 28 days of life for at least 7 days are entitled to up to 12 weeks of paid neonatal care leave. This is in addition to maternity, paternity and shared parental leave. It is a day-one right.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What changes did ERA 2024 make to collective redundancy rules?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">ERA 2024 extends collective redundancy consultation obligations so that the 20+ redundancy threshold is calculated across an employer's entire operation, not just a single establishment. Previously, an employer could dismiss 19 workers at each of multiple sites without triggering collective consultation. Now total dismissals across all sites are counted.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does ERA 2024 introduce day-one unfair dismissal rights?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Yes, ERA 2024 removes the two-year qualifying period for unfair dismissal claims, giving employees protection from day one of employment. However, this provision is not yet in force. Expected 2026 via secondary legislation. A probationary period regime is being developed to allow employers to manage new hires.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD ZONE: After FAQ -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- Cross promo -->
+      <div class="cross-strip uae-to-uk" style="margin-bottom:40px" data-enter>
+        <div>
+          <h3>Also setting up in the UAE?</h3>
+          <p>Compare all 12 UAE free zones side-by-side — costs, visa allocations, setup times and best-fit activities.</p>
+        </div>
+        <a href="/uae/free-zone-comparison" class="btn btn-white">Compare UAE Free Zones →</a>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Related UK Tools</div></div>
+        <div class="sidebar-card-body">
+          <a href="/uk/zero-hours-rights-checker" class="sidebar-tool-link"><span class="stl-icon">📊</span>Zero-Hours Rights Checker</a>
+          <a href="/uk/holiday-entitlement-calculator" class="sidebar-tool-link"><span class="stl-icon">📅</span>Holiday Entitlement Calculator</a>
+          <a href="/uae/free-zone-comparison" class="sidebar-tool-link"><span class="stl-icon">🏢</span>UAE Free Zone Comparison</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Quick Reference</div></div>
+        <div class="sidebar-card-body" style="gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-weight:600">Royal Assent</span><span style="font-family:var(--mono);color:var(--text-3)">Oct 2024</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-weight:600">Neonatal Leave</span><span style="font-family:var(--mono);color:var(--pass);font-size:11px">Apr 2025 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-weight:600">Guaranteed hours</span><span style="font-family:var(--mono);color:var(--warn);font-size:11px">2026</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 0"><span style="font-weight:600">Day-one dismissal</span><span style="font-family:var(--mono);color:var(--warn);font-size:11px">2026</span></div>
+        </div>
+      </div>
+
+      <!-- Ad zone: sidebar rectangle -->
+      <div class="ad-zone ad-zone--sidebar" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement<br>300×250</div>
+      </div>
+    </aside>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo">Compliance<span class="dot">.</span>Calc</div><p class="footer-tagline">Free professional compliance tools for UK employment law and UAE business setup. Not legal or financial advice.</p></div>
+      <div><div class="footer-col-title">UK Tools</div><ul class="footer-links"><li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li><li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li><li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li><li><a href="/uk">All UK Tools</a></li></ul></div>
+      <div><div class="footer-col-title">UAE Tools</div><ul class="footer-links"><li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li><li><a href="/uae/business-setup-cost-calculator">Cost Calculator</a></li><li><a href="/uae">All UAE Tools</a></li></ul></div>
+      <div><div class="footer-col-title">Information</div><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/privacy">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-note">&copy; 2026 ComplianceCalc &mdash; For informational purposes only. Not legal advice.</span><span class="footer-note">Updated September 2026</span></div>
+  </div>
+</footer>
+
+<script>
+const answers={};
+let currentStep=1;
+const totalSteps=7;
+
+document.querySelectorAll('.radio-group').forEach(function(group){
+  var name=group.dataset.name;
+  group.querySelectorAll('input[type=radio]').forEach(function(radio){
+    radio.addEventListener('change',function(){
+      answers[name]=radio.value;
+      group.querySelectorAll('.radio-opt').forEach(function(opt){opt.classList.remove('selected')});
+      radio.closest('.radio-opt').classList.add('selected');
+      enableNextForPanel(currentStep);
+    });
+  });
+});
+
+function enableNextForPanel(step){
+  var panel=document.getElementById('panel-'+step);
+  if(!panel)return;
+  var radios=panel.querySelectorAll('.radio-group');
+  var allAnswered=[].every.call(radios,function(g){return answers[g.dataset.name]!==undefined});
+  var btn=document.getElementById('next-'+step);
+  if(btn)btn.disabled=!allAnswered;
+  if(step===7){var nb=document.getElementById('next-7');if(nb)nb.disabled=!allAnswered}
+}
+
+function nextStep(from){
+  document.getElementById('panel-'+from).classList.remove('active');
+  var to=from+1;
+  if(to<=totalSteps){
+    document.getElementById('panel-'+to).classList.add('active');
+    currentStep=to;
+    updateStepIndicator(from,to);
+    enableNextForPanel(to);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+
+function prevStep(from){
+  document.getElementById('panel-'+from).classList.remove('active');
+  var to=from-1;
+  document.getElementById('panel-'+to).classList.add('active');
+  currentStep=to;
+  updateStepIndicator(from,to);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateStepIndicator(from,to){
+  var prev=document.getElementById('si-'+from);
+  if(prev){prev.classList.remove('active');prev.classList.add('done')}
+  var next=document.getElementById('si-'+to);
+  if(next){next.classList.remove('pending','done');next.classList.add('active')}
+}
+
+var scoring={
+  q1:{no:{score:10,status:'pass',msg:'Zero-hours contracts',detail:'You do not use zero-hours contracts.',action:null},'yes-managed':{score:8,status:'pass',msg:'Zero-hours contracts',detail:'You have a policy to review and offer guaranteed hours. Good proactive approach.',action:null},'yes-no-policy':{score:0,status:'fail',msg:'Zero-hours contracts',detail:'Workers on zero-hours contracts will be entitled to request guaranteed hours after 12 weeks of regular work under ERA 2024.',action:'Create a guaranteed hours review process before 2026 implementation'}},
+  q2:{yes:{score:10,status:'pass',msg:'Flexible working day-one right',detail:'Your flexible working policy allows day-one requests. Compliant.',action:null},'old-policy':{score:0,status:'fail',msg:'Flexible working day-one right',detail:'Your policy requires 26 weeks service before requesting flexible working. Non-compliant since April 2024.',action:'Update your flexible working policy immediately — remove the 26-week service requirement'},'no-policy':{score:0,status:'fail',msg:'Flexible working day-one right',detail:'No flexible working policy exists. Non-compliant since April 2024.',action:'Create and implement a flexible working policy allowing day-one requests'}},
+  q3:{full:{score:10,status:'pass',msg:'Pregnancy & maternity protection',detail:'Your redundancy procedures include enhanced protections through the 18-month post-maternity period.',action:null},partial:{score:4,status:'warn',msg:'Pregnancy & maternity protection',detail:'You protect during leave but not the full 18-month post-return period required.',action:'Update redundancy procedures to cover the 18-month post-maternity/adoption/SPL return period'},none:{score:0,status:'fail',msg:'Pregnancy & maternity protection',detail:'No enhanced protections exist in your redundancy procedures.',action:'Immediately add enhanced pregnancy and maternity redundancy protections to your procedures'}},
+  q4:{yes:{score:10,status:'pass',msg:'Neonatal Care Leave',detail:'You have a written Neonatal Care Leave policy. Compliant since April 2025.',action:null},'in-progress':{score:4,status:'warn',msg:'Neonatal Care Leave',detail:'Policy in progress. Non-compliant until implemented — this was due April 2025.',action:'Finalise and implement your Neonatal Care Leave policy as a priority'},no:{score:0,status:'fail',msg:'Neonatal Care Leave',detail:'No Neonatal Care Leave policy exists. Non-compliant since April 2025.',action:'Implement a Neonatal Care Leave policy immediately — this right is now in force'}},
+  q5:{full:{score:10,status:'pass',msg:'Harassment prevention (third-party)',detail:'You have comprehensive written procedures covering third-party harassment. Compliant.',action:null},partial:{score:4,status:'warn',msg:'Harassment prevention (third-party)',detail:'Your policy does not specifically address third-party harassment as required since October 2024.',action:'Update your harassment policy to explicitly cover clients, customers and contractor harassment'},none:{score:0,status:'fail',msg:'Harassment prevention (third-party)',detail:'No written harassment policy exists. Non-compliant since October 2024 — EHRC enforcement risk.',action:'Create a written anti-harassment policy with third-party provisions and training schedule immediately'}},
+  q6:{never:{score:10,status:'pass',msg:'Fire and rehire',detail:'You have no fire-and-rehire exposure.',action:null},'aware-restricted':{score:8,status:'pass',msg:'Fire and rehire',detail:'You have updated your approach in line with the new restrictions.',action:null},consider:{score:0,status:'fail',msg:'Fire and rehire',detail:'You are considering a fire-and-rehire exercise. Under ERA 2024 this is automatically unfair dismissal in almost all cases.',action:'Halt any planned fire-and-rehire exercise and seek urgent employment law advice before proceeding'}},
+  q7a:{yes:{score:5,status:'pass',msg:'Collective redundancy procedures',detail:'Your procedures count redundancies across the entire organisation. Compliant.',action:null},no:{score:0,status:'warn',msg:'Collective redundancy procedures',detail:'Your procedures use per-establishment thresholds only. ERA 2024 now requires group-wide counting.',action:'Update collective redundancy procedures to count dismissals across your entire organisation/group'},single:{score:5,status:'pass',msg:'Collective redundancy procedures',detail:'Single site — group-wide extension does not apply. Monitor for day-one dismissal changes.',action:null}},
+  q7b:{yes:{score:5,status:'pass',msg:'Day-one dismissal preparation',detail:'You are proactively preparing for day-one unfair dismissal rights.',action:null},no:{score:2,status:'warn',msg:'Day-one dismissal preparation',detail:'Expected in 2026 — begin reviewing your probationary period and new hire management now.',action:'Review probationary period procedures and new hire performance management processes ahead of 2026'}}
+};
+
+function showResults(){
+  document.getElementById('panel-7').classList.remove('active');
+  document.getElementById('toolContainer').style.display='none';
+  var rp=document.getElementById('resultsPanel');
+  rp.classList.add('visible');
+  var s7=document.getElementById('si-7');
+  if(s7){s7.classList.remove('active');s7.classList.add('done')}
+  var s8=document.getElementById('si-8');
+  if(s8){s8.classList.remove('pending');s8.classList.add('active')}
+
+  var totalScore=0,maxScore=0,rows=[];
+  Object.entries(scoring).forEach(function([qKey,opts]){
+    var ans=answers[qKey];
+    if(!ans)return;
+    var r=opts[ans];
+    if(!r)return;
+    totalScore+=r.score;
+    var maxQ=Math.max.apply(null,Object.values(opts).map(function(o){return o.score}));
+    maxScore+=maxQ;
+    rows.push(r);
+  });
+
+  var pct=maxScore>0?Math.round((totalScore/maxScore)*100):0;
+  var circumference=2*Math.PI*34;
+  var fill=(pct/100)*circumference;
+  var arc=document.getElementById('scoreArc');
+  var numEl=document.getElementById('scoreNum');
+  var descEl=document.getElementById('scoreDesc');
+  var swrap=document.getElementById('scoreTextWrap');
+  var sectionsEl=document.getElementById('resultSections');
+  var summaryEl=document.getElementById('resultsSummary');
+
+  setTimeout(function(){arc.style.strokeDasharray=fill+' '+circumference},100);
+  numEl.textContent=pct+'%';
+
+  var failCount=rows.filter(function(r){return r.status==='fail'}).length;
+  var warnCount=rows.filter(function(r){return r.status==='warn'}).length;
+
+  if(pct>=80){arc.setAttribute('stroke','#059669');descEl.textContent='Strong compliance posture';descEl.style.color='var(--pass)'}
+  else if(pct>=50){arc.setAttribute('stroke','#d97706');descEl.textContent='Partial compliance — action required';descEl.style.color='var(--warn)'}
+  else{arc.setAttribute('stroke','#dc2626');descEl.textContent='Significant compliance gaps';descEl.style.color='var(--fail)'}
+
+  sectionsEl.innerHTML=rows.map(function(r){
+    return '<div class="result-row '+r.status+'"><div class="rr-icon">'+(r.status==='pass'?'✓':r.status==='warn'?'!':'✕')+'</div><div class="rr-body"><div class="rr-title">'+r.msg+'</div><div class="rr-detail">'+r.detail+'</div>'+(r.action?'<div class="rr-action">Action: '+r.action+'</div>':'')+'</div></div>';
+  }).join('');
+
+  var summary='<strong>Summary:</strong> Your organisation scored '+pct+'% compliance across ERA 2024 provisions assessed. ';
+  if(failCount>0)summary+='<strong>'+failCount+' area'+(failCount>1?'s':'')+' require immediate action</strong>. ';
+  if(warnCount>0)summary+=warnCount+' area'+(warnCount>1?'s':'')+' need updating. ';
+  summary+='This covers provisions currently in force and those requiring advance preparation. Consult an employment solicitor for advice specific to your organisation. <a href="https://www.acas.org.uk" target="_blank" rel="noopener">ACAS guidance</a> and <a href="https://www.gov.uk/employment-rights-bill" target="_blank" rel="noopener">GOV.UK Employment Rights Bill</a> are free official resources.';
+  summaryEl.innerHTML=summary;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restartChecker(){
+  Object.keys(answers).forEach(function(k){delete answers[k]});
+  currentStep=1;
+  document.getElementById('toolContainer').style.display='block';
+  document.getElementById('resultsPanel').classList.remove('visible');
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+  document.getElementById('panel-1').classList.add('active');
+  ['si-1','si-2','si-3','si-4','si-5','si-6','si-7'].forEach(function(id,i){
+    var el=document.getElementById(id);
+    if(el){el.className='step-item '+(i===0?'active':'pending')}
+  });
+  var s8=document.getElementById('si-8');
+  if(s8)s8.className='step-item pending';
+  document.querySelectorAll('.radio-opt').forEach(function(o){o.classList.remove('selected')});
+  document.querySelectorAll('input[type=radio]').forEach(function(r){r.checked=false});
+  document.querySelectorAll('[id^=next-]').forEach(function(b){b.disabled=true});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+<script src="/shared/scripts.js" defer></script>
+</body>
+</html>

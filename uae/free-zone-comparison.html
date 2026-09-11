@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UAE Free Zone Comparison Tool 2024 — Compare 12 Free Zones Side by Side</title>
+<meta name="description" content="Compare 12 UAE free zones side-by-side. Filter by budget, business type, emirate and visa needs. See real license costs, setup times and visa allocations for DMCC, RAKEZ, IFZA, JAFZA, Ajman and more.">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/uae/free-zone-comparison">
+<meta property="og:title" content="UAE Free Zone Comparison Tool 2024 — Compare 12 Free Zones">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"UAE Free Zone Comparison Tool 2024","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Compare all major UAE free zones side-by-side. Filter by budget, emirate, business type and visa requirements. Covers DMCC, IFZA, RAKEZ, JAFZA, Ajman, SAIF Zone, DIFC, Dubai Internet City, Dubai Media City, Dubai Silicon Oasis, Fujairah Creative City and ADGM.","url":"https://YOUR-DOMAIN.com/uae/free-zone-comparison","offers":{"@type":"Offer","price":"0","priceCurrency":"AED"},"inLanguage":"en","dateModified":"2026-09-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which UAE free zone has the lowest setup cost in 2024?","acceptedAnswer":{"@type":"Answer","text":"Ajman Free Zone is generally the lowest-cost UAE free zone, with license costs starting from approximately AED 6,000–12,000. Fujairah Creative City is similarly affordable starting around AED 5,750. RAKEZ (Ras Al Khaimah Economic Zone) is the most affordable major free zone with good banking support, starting from AED 7,500. For a Dubai address, IFZA offers the best value starting around AED 12,900."}},{"@type":"Question","name":"What is the difference between a UAE free zone and mainland company?","acceptedAnswer":{"@type":"Answer","text":"A UAE free zone company offers 100% foreign ownership, zero import/export duties within the free zone, and no corporate tax on qualifying income. However, free zone companies were traditionally restricted from directly trading with UAE mainland customers without a distributor. Following the 2023 UAE corporate tax law, both structures are now subject to 9% corporate tax on profits above AED 375,000, with free zones qualifying for 0% on qualifying income under specific conditions."}},{"@type":"Question","name":"How many visas can I get with a UAE free zone license?","acceptedAnswer":{"@type":"Answer","text":"Flexi-desk packages typically allow 2–3 visas, standard office packages allow 4–6 visas, and larger offices can accommodate more. DMCC, JAFZA, DIFC and ADGM offer higher visa quotas for premium packages. RAKEZ and Ajman free zone typically allow up to 5–6 visas per standard license."}},{"@type":"Question","name":"What is IFZA and why is it popular?","acceptedAnswer":{"@type":"Answer","text":"IFZA (International Free Zone Authority) is a Dubai free zone that has become one of the most popular for small businesses and consultancies due to its combination of a Dubai address, competitive pricing (starting around AED 12,900), fast processing (1–2 weeks), flexible business activities and good banking support. It offers up to 6 visas per standard package."}},{"@type":"Question","name":"What is DMCC best for?","acceptedAnswer":{"@type":"Answer","text":"DMCC (Dubai Multi Commodities Centre) is the UAE's most prestigious free zone, top-ranked in the world for five consecutive years. Best for trading, commodities, precious metals, crypto/Web3 businesses and companies wanting the most prestigious Dubai address. Costs start around AED 22,000."}},{"@type":"Question","name":"How long does it take to set up a UAE free zone company?","acceptedAnswer":{"@type":"Answer","text":"The fastest free zones (Ajman, IFZA, RAKEZ) can complete licensing in 5–10 working days. Mid-tier free zones like DMCC typically take 3–4 weeks. Regulated free zones like DIFC and ADGM can take 6–12 weeks due to regulatory approvals."}},{"@type":"Question","name":"Do UAE free zones require a physical office?","acceptedAnswer":{"@type":"Answer","text":"Most UAE free zones offer flexi-desk options (shared workspace) as the most affordable choice, satisfying the office requirement. Standard packages include a dedicated desk or small office. DIFC and ADGM typically require physical office space. For virtual/remote businesses, flexi-desk packages in IFZA, RAKEZ and Ajman are popular."}},{"@type":"Question","name":"Can a free zone company trade with UAE mainland customers?","acceptedAnswer":{"@type":"Answer","text":"Traditionally, free zone companies could not directly trade with UAE mainland customers without appointing a local distributor or agent. The UAE government has been relaxing these rules. Many free zones now offer permits to trade with the mainland. The specific rules depend on the free zone and business activity."}}]}
+</script>
+<style>
+/* ── Page-specific styles ── */
+.tool-header{padding:clamp(32px,4vw,52px) 0 24px;border-bottom:1px solid var(--border)}
+.filter-bar{
+  background:var(--bg-white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px 24px;
+  margin:24px 0;
+  box-shadow:var(--shadow-sm);
+}
+.filter-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.filter-group{display:flex;flex-direction:column;gap:5px;min-width:150px;flex:1}
+.filter-label{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.filter-group select{
+  padding:9px 32px 9px 12px;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  background:var(--bg);
+  color:var(--text);
+  font-size:13px;
+  font-family:var(--font);
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238b8b9e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 12px center;
+  cursor:pointer;
+  transition:border-color .15s;
+}
+.filter-group select:focus{outline:none;border-color:var(--accent)}
+.filter-meta{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.filter-count{font-family:var(--mono);font-size:12px;color:var(--text-3)}
+.filter-reset{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);background:none;border:none;cursor:pointer;transition:color .15s;display:flex;align-items:center;gap:6px}
+.filter-reset:hover{color:var(--fail)}
+
+/* Zone grid */
+.zone-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:48px;
+}
+@media(max-width:900px){.zone-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.zone-grid{grid-template-columns:1fr}}
+
+/* Zone card */
+.zone-card{
+  background:var(--bg-white);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .15s,box-shadow .15s,transform .1s;
+  position:relative;
+}
+.zone-card:hover{border-color:var(--border-dark);box-shadow:var(--shadow);transform:translateY(-2px)}
+.zone-card.selected{border-color:var(--uae);box-shadow:0 0 0 3px rgba(0,112,44,.12)}
+.zone-card-top{padding:18px 18px 14px;border-bottom:1px solid var(--border)}
+.zone-tier{
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:var(--radius-pill);
+  float:right;
+  margin-left:8px;
+}
+.tier-premium{background:#fff8e6;color:#b45309;border:1px solid rgba(180,83,9,.15)}
+.tier-mid{background:var(--accent-dim);color:var(--accent);border:1px solid rgba(21,71,232,.15)}
+.tier-budget{background:var(--pass-bg);color:var(--pass);border:1px solid rgba(5,150,105,.15)}
+.zone-name{font-size:18px;font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1}
+.zone-fullname{font-size:12px;color:var(--text-3);margin-top:3px;line-height:1.3}
+.zone-emirate{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--uae);margin-top:8px}
+.zone-cost-row{padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-muted)}
+.zone-cost{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.zone-cost small{font-size:10px;font-weight:400;color:var(--text-3)}
+.zone-meta{padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;border-bottom:1px solid var(--border)}
+.meta-cell .mk{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.meta-cell .mv{font-size:13px;font-weight:700;color:var(--text);margin-top:2px}
+.zone-highlight{padding:12px 18px;font-size:13px;color:var(--text-2);line-height:1.6;border-bottom:1px solid var(--border);flex:1}
+.zone-tags{padding:10px 18px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--border)}
+.ztag{
+  font-family:var(--mono);
+  font-size:9.5px;
+  font-weight:600;
+  padding:3px 8px;
+  background:var(--bg-muted);
+  border:1px solid var(--border);
+  border-radius:var(--radius-pill);
+  color:var(--text-2);
+  white-space:nowrap;
+}
+.zone-pros-cons{padding:12px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;border-bottom:1px solid var(--border)}
+.zone-pros h5,.zone-cons h5{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.zone-pros h5{color:var(--pass)}.zone-cons h5{color:var(--fail)}
+.zone-pros ul,.zone-cons ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.zone-pros li::before{content:'✓ ';color:var(--pass);font-weight:700}
+.zone-cons li::before{content:'✕ ';color:var(--fail);font-weight:700}
+.zone-actions{padding:14px 18px;display:flex;gap:8px}
+.btn-compare{
+  flex:1;
+  padding:9px 12px;
+  background:var(--bg-muted);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  font-size:12px;
+  font-weight:700;
+  font-family:var(--font);
+  color:var(--text-2);
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-compare:hover,.btn-compare.active{background:var(--uae);border-color:var(--uae);color:#fff}
+.btn-visit{
+  padding:9px 12px;
+  background:transparent;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  font-size:12px;
+  font-weight:700;
+  font-family:var(--font);
+  color:var(--text-3);
+  cursor:pointer;
+  transition:all .15s;
+  text-decoration:none;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.btn-visit:hover{border-color:var(--border-dark);color:var(--text);text-decoration:none}
+
+/* No results */
+.no-results{text-align:center;padding:48px 24px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);display:none}
+.no-results h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.no-results p{font-size:14px;color:var(--text-2)}
+
+/* Compare modal */
+.compare-modal-overlay{position:fixed;inset:0;background:rgba(17,17,24,.75);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+.compare-modal-overlay.visible{display:flex}
+.compare-modal{background:var(--bg-white);border-radius:var(--radius-lg);max-width:860px;width:100%;max-height:92vh;overflow:auto;box-shadow:var(--shadow-lg)}
+.compare-modal-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg-white);z-index:1}
+.compare-modal-title{font-size:18px;font-weight:900;letter-spacing:-.025em}
+.compare-close{display:flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg-muted);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.compare-close:hover{background:var(--border)}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);padding:14px 16px;border-bottom:2px solid var(--border);text-align:left;background:var(--bg-muted);white-space:nowrap}
+.compare-table td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55}
+.compare-table .zone-col{font-weight:800;font-size:15px;letter-spacing:-.02em;color:var(--uae)}
+.compare-table tr:hover td{background:var(--bg-muted)}
+
+/* Mobile nav open state */
+@media(max-width:680px){
+  .nav-links.nav-open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px var(--gutter);gap:4px;z-index:199}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" role="navigation" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">Compliance<span class="dot">.</span>Calc</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="/uk" class="nav-link">UK Tools</a></li>
+      <li><a href="/uae" class="nav-link active">UAE Tools</a></li>
+      <li><a href="/about" class="nav-link">About</a></li>
+    </ul>
+    <a href="/uae/business-setup-cost-calculator" class="nav-cta">Cost Calculator</a>
+    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="4" width="20" height="2" rx="1" fill="currentColor"/><rect y="9" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="sep">›</li>
+        <li><a href="/uae">UAE Business Setup</a></li>
+        <li class="sep">›</li>
+        <li>Free Zone Comparison Tool</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+<div class="tool-header">
+  <div class="container">
+    <div class="t-eye uae mb-16">UAE Business Setup Tool</div>
+    <h1 class="display" style="max-width:820px;margin-bottom:16px">UAE Free Zone Comparison<br>Tool 2024</h1>
+    <p class="lead" style="margin-bottom:20px">Compare 12 major UAE free zones side-by-side. Filter by emirate, budget, business activity and visa requirements. Real license costs and setup times — updated September 2026.</p>
+    <div class="flex flex-wrap gap-8">
+      <span class="badge badge-uae"><span class="dot"></span>12 Free Zones</span>
+      <span class="badge badge-blue">Updated Sep 2026</span>
+      <span class="badge badge-neutral">Not financial advice</span>
+      <span class="badge badge-neutral">Compare up to 4</span>
+    </div>
+  </div>
+</div>
+
+<!-- AD ZONE -->
+<div class="container" style="padding-top:20px">
+  <div class="ad-zone ad-zone--leaderboard" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · 728×90</div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:4px;padding-bottom:80px">
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" data-enter>
+    <div class="filter-row">
+      <div class="filter-group">
+        <div class="filter-label">Emirate</div>
+        <select id="f-emirate" onchange="applyFilters()">
+          <option value="all">All Emirates</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+          <option value="Sharjah">Sharjah</option>
+          <option value="Ajman">Ajman</option>
+          <option value="Fujairah">Fujairah</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Annual Budget (AED)</div>
+        <select id="f-budget" onchange="applyFilters()">
+          <option value="all">Any budget</option>
+          <option value="10000">Under AED 10,000</option>
+          <option value="15000">Under AED 15,000</option>
+          <option value="20000">Under AED 20,000</option>
+          <option value="30000">Under AED 30,000</option>
+          <option value="50000">Under AED 50,000</option>
+          <option value="999999">Any budget</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Business Type</div>
+        <select id="f-activity" onchange="applyFilters()">
+          <option value="all">All Activities</option>
+          <option value="consultancy">Consultancy / Services</option>
+          <option value="trading">Trading / Import-Export</option>
+          <option value="tech">Technology / Digital</option>
+          <option value="media">Media / Creative</option>
+          <option value="financial">Financial Services</option>
+          <option value="manufacturing">Manufacturing / Logistics</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Visas Needed</div>
+        <select id="f-visa" onchange="applyFilters()">
+          <option value="0">Any</option>
+          <option value="2">1–2 visas</option>
+          <option value="4">3–4 visas</option>
+          <option value="6">5–6 visas</option>
+          <option value="7">6+ visas</option>
+        </select>
+      </div>
+    </div>
+    <div class="filter-meta">
+      <div class="filter-count">Showing <strong id="countDisplay">12</strong> of 12 free zones</div>
+      <button class="filter-reset" onclick="resetFilters()">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7"/></svg>
+        Clear filters
+      </button>
+    </div>
+  </div>
+
+  <!-- ZONE GRID -->
+  <div class="zone-grid" id="zoneGrid"></div>
+
+  <div class="no-results" id="noResults">
+    <h3>No free zones match your filters</h3>
+    <p>Try adjusting your budget or activity filter. <button class="filter-reset" onclick="resetFilters()" style="display:inline;font-size:13px">Reset all filters</button></p>
+  </div>
+
+  <!-- AD ZONE: Mid-page -->
+  <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+    <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+  </div>
+
+  <!-- CONTENT GRID (prose + sidebar) -->
+  <div class="page-grid" style="margin-top:40px">
+    <div>
+      <div class="section-sm">
+        <div class="t-eye uae mb-16">Guide</div>
+        <div class="prose">
+          <h2>How to Choose the Right UAE Free Zone</h2>
+          <p>With over 40 UAE free zones, choosing the right one depends on four factors: your business activity, budget, visa requirements, and whether you need a Dubai address. This guide covers the 12 most popular and accessible free zones for 2024.</p>
+
+          <h3>Budget-conscious businesses</h3>
+          <p>RAKEZ, Ajman Free Zone, and Fujairah Creative City offer the lowest setup costs while maintaining good UAE banking access. <strong>RAKEZ</strong> is the most recommended budget option for businesses that need credibility with UAE banks. <strong>Ajman Free Zone</strong> is cheapest overall (from AED 6,000) and can complete setup in as little as one week.</p>
+
+          <h3>Dubai address on a budget</h3>
+          <p><strong>IFZA</strong> offers the best value for a genuine Dubai address, with licenses starting around AED 12,900. It accepts a wide range of business activities including consultancy, trading, and technology, and processes applications within 1–2 weeks. It consistently ranks as the fastest-growing free zone in Dubai.</p>
+
+          <h3>Premium trading and tech businesses</h3>
+          <p><strong>DMCC</strong> is the world's top-ranked free zone for five consecutive years and is the go-to choice for trading, commodities, and crypto businesses. It has the most comprehensive business ecosystem and is particularly favoured for crypto/Web3 companies due to its Virtual Asset Service Provider (VASP) licensing framework. Costs start around AED 22,000.</p>
+          <p><strong>Dubai Internet City</strong> is the premier address for tech companies — home to Google, Microsoft, IBM, Oracle and 1,600+ technology firms. If your ICP includes enterprise tech clients, a DIC address signals credibility that no other free zone matches.</p>
+
+          <h3>Regulated industries (financial services)</h3>
+          <p>Financial services firms must use <strong>DIFC</strong> (Dubai) or <strong>ADGM</strong> (Abu Dhabi). Both operate under English common law and are globally recognised by financial regulators. DIFC has its own financial regulator (DFSA) and courts. Costs are significantly higher (AED 40k+) and setup takes 6–12 weeks due to regulatory approvals — but there is no alternative for licenced financial services.</p>
+
+          <h3>Understanding UAE corporate tax (2023)</h3>
+          <p>Since June 2023, both mainland and free zone companies are subject to 9% UAE corporate tax on profits above AED 375,000 per year. Free zone companies that meet the "Qualifying Free Zone Person" criteria can still access 0% corporate tax on qualifying income. Consult a UAE-registered tax advisor before choosing your structure.</p>
+
+          <div class="alert alert-info"><strong>Data accuracy:</strong> All cost and setup time data is sourced from official free zone authority websites and is updated monthly. These are indicative ranges — actual costs depend on the specific license package, number of activities, and any promotional pricing from the free zone. Always confirm current pricing directly with the free zone authority before making a decision.</div>
+        </div>
+      </div>
+
+      <!-- AD ZONE -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section-sm">
+        <div class="t-eye uae mb-16">FAQ</div>
+        <h2 class="display-sm" style="margin-bottom:24px">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Which UAE free zone has the lowest setup cost in 2024?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Ajman Free Zone is generally the lowest-cost UAE free zone, with license costs starting from approximately AED 6,000–12,000. Fujairah Creative City is similarly affordable at around AED 5,750. RAKEZ (Ras Al Khaimah Economic Zone) is the most affordable major free zone with good banking support, starting from AED 7,500. For a Dubai address, IFZA offers the best value starting around AED 12,900.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the difference between a UAE free zone and mainland company?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">A UAE free zone company offers 100% foreign ownership, zero import/export duties within the free zone, and no corporate tax on qualifying income. Free zone companies were traditionally restricted from directly trading with UAE mainland customers without a local distributor. Following the 2023 UAE corporate tax law, both structures are now subject to 9% corporate tax on profits above AED 375,000, with free zones qualifying for 0% on qualifying income under specific conditions.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How many visas can I get with a UAE free zone license?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">The number of visas depends on the free zone and your office arrangement. Flexi-desk packages typically allow 2–3 visas, standard office packages allow 4–6 visas, and larger offices can accommodate more. DMCC, JAFZA, DIFC and ADGM offer higher visa quotas for premium packages. RAKEZ and Ajman Free Zone typically allow up to 5–6 visas per standard license.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is IFZA and why is it popular?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">IFZA (International Free Zone Authority) is a Dubai free zone that has become one of the most popular for small businesses and consultancies due to its combination of a Dubai address, competitive pricing (starting around AED 12,900), fast processing (1–2 weeks), flexible business activities and good banking support. It offers up to 6 visas per standard package and accepts a wide range of activities including consultancy, trading, and technology.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is DMCC and what businesses is it best for?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">DMCC (Dubai Multi Commodities Centre) is the UAE's most prestigious free zone, top-ranked in the world for five consecutive years. It is best for trading companies, commodities businesses, precious metals traders, cryptocurrency firms, and companies wanting the most prestigious Dubai address. License costs start around AED 22,000. DMCC is particularly favoured for crypto/Web3 businesses due to its Virtual Asset Service Provider (VASP) licensing framework.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How long does it take to set up a UAE free zone company?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Setup times vary by free zone. The fastest (Ajman, IFZA, RAKEZ) can complete licensing in 5–10 working days. Mid-tier free zones like DMCC and Dubai Silicon Oasis typically take 3–4 weeks. Regulated free zones like DIFC and ADGM can take 6–12 weeks due to regulatory approvals. All free zones require a valid passport, completed application forms, and payment of fees.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do UAE free zones require a physical office?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Most UAE free zones offer flexi-desk options (shared workspace) as the most affordable choice, which satisfies the office requirement. Standard packages include a dedicated desk or small office. DIFC and ADGM typically require physical office space due to their regulated nature. For virtual/remote businesses, flexi-desk packages in IFZA, RAKEZ and Ajman are the most popular options.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can a free zone company trade with UAE mainland customers?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1v8M1 5h8"/></svg></div></button>
+            <div class="faq-body"><div class="faq-ans">Traditionally, free zone companies could not directly trade with UAE mainland customers without appointing a local distributor or agent. However, the UAE government has been relaxing these rules. Many free zones now offer permits to trade with the mainland. The specific rules depend on the free zone and business activity — check with your chosen free zone before assuming direct mainland trading is permitted.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD ZONE: After FAQ -->
+      <div class="ad-zone ad-zone--in-content" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement · Responsive</div>
+      </div>
+
+      <!-- Cross promo -->
+      <div class="cross-strip uae-to-uk" style="margin-bottom:40px" data-enter>
+        <div>
+          <h3>Also operating in the UK?</h3>
+          <p>Check your UK employment contracts against the Employment Rights Act 2024 — the UK's biggest employment law change in 30 years.</p>
+        </div>
+        <a href="/uk/era-2024-contract-checker" class="btn btn-white">Check ERA 2024 Compliance →</a>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Quick Picks</div></div>
+        <div class="sidebar-card-body" style="gap:10px">
+          <div style="font-size:12px;color:var(--text-2)"><span style="font-weight:700;color:var(--text)">Cheapest overall:</span> Fujairah Creative City (AED 5,750)</div>
+          <div style="font-size:12px;color:var(--text-2)"><span style="font-weight:700;color:var(--text)">Best Dubai value:</span> IFZA (AED 12,900)</div>
+          <div style="font-size:12px;color:var(--text-2)"><span style="font-weight:700;color:var(--text)">Best for freelancers:</span> Fujairah Creative City</div>
+          <div style="font-size:12px;color:var(--text-2)"><span style="font-weight:700;color:var(--text)">Best for trading/crypto:</span> DMCC</div>
+          <div style="font-size:12px;color:var(--text-2)"><span style="font-weight:700;color:var(--text)">Financial services only:</span> DIFC / ADGM</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-hd"><div class="sidebar-card-hd-title">Related Tools</div></div>
+        <div class="sidebar-card-body">
+          <a href="/uae/business-setup-cost-calculator" class="sidebar-tool-link"><span class="stl-icon">💰</span>UAE Setup Cost Calculator</a>
+          <a href="/uk/era-2024-contract-checker" class="sidebar-tool-link"><span class="stl-icon">⚖️</span>UK ERA 2024 Checker</a>
+          <a href="/uk/holiday-entitlement-calculator" class="sidebar-tool-link"><span class="stl-icon">📅</span>Holiday Calculator</a>
+        </div>
+      </div>
+      <!-- Ad zone: sidebar -->
+      <div class="ad-zone ad-zone--sidebar" aria-label="Advertisement">
+        <div class="ad-zone-placeholder">Advertisement<br>300×250</div>
+      </div>
+    </aside>
+  </div>
+
+</div><!-- /container -->
+
+<!-- COMPARE BAR (fixed bottom) -->
+<div class="compare-bar" id="compareBar" role="complementary" aria-label="Comparison tray">
+  <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
+    <span style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6b6b7e;flex-shrink:0">Compare</span>
+    <div class="compare-chips" id="compareChips"></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+    <button onclick="clearCompare()" style="font-family:var(--mono);font-size:11px;font-weight:600;color:#6b6b7e;background:none;border:none;cursor:pointer;letter-spacing:.06em;text-transform:uppercase">Clear</button>
+    <button onclick="openCompareModal()" class="btn btn-accent btn-sm">Compare side by side →</button>
+  </div>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="compare-modal-overlay" id="compareModal" onclick="if(event.target===this)closeCompareModal()">
+  <div class="compare-modal">
+    <div class="compare-modal-hd">
+      <div class="compare-modal-title">Free Zone Comparison</div>
+      <button class="compare-close" onclick="closeCompareModal()">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M1 1l10 10M11 1L1 11"/></svg>
+        Close
+      </button>
+    </div>
+    <div style="padding:0;overflow-x:auto" id="compareTableWrap"></div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo">Compliance<span class="dot">.</span>Calc</div><p class="footer-tagline">Free professional compliance tools for UK employment law and UAE business setup. Not legal or financial advice.</p></div>
+      <div><div class="footer-col-title">UAE Tools</div><ul class="footer-links"><li><a href="/uae/free-zone-comparison">Free Zone Comparison</a></li><li><a href="/uae/business-setup-cost-calculator">Cost Calculator</a></li><li><a href="/uae">All UAE Tools</a></li></ul></div>
+      <div><div class="footer-col-title">UK Tools</div><ul class="footer-links"><li><a href="/uk/era-2024-contract-checker">ERA 2024 Checker</a></li><li><a href="/uk/zero-hours-rights-checker">Zero-Hours Checker</a></li><li><a href="/uk/holiday-entitlement-calculator">Holiday Calculator</a></li><li><a href="/uk">All UK Tools</a></li></ul></div>
+      <div><div class="footer-col-title">Information</div><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/privacy">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-note">&copy; 2026 ComplianceCalc &mdash; For informational purposes only. Not financial advice.</span><span class="footer-note">Data updated September 2026</span></div>
+  </div>
+</footer>
+
+<script>
+// DATA_LAST_UPDATED: 2026-09-01
+var FREE_ZONES=[
+  {id:'dmcc',name:'DMCC',fullName:'Dubai Multi Commodities Centre',emirate:'Dubai',costMin:22000,costMax:50000,visaMax:6,setupWeeks:3,activities:['trading','consultancy','tech'],tier:'premium',tags:['#1 ranked worldwide','Crypto-friendly','Prestigious address'],highlight:'Best for trading, commodities and crypto businesses wanting the most prestigious Dubai address.',pros:['World\'s top-ranked free zone','Crypto & VASP licensing','Largest FZ community'],cons:['Higher cost','Stricter requirements'],website:'https://www.dmcc.ae'},
+  {id:'ifza',name:'IFZA',fullName:'International Free Zone Authority',emirate:'Dubai',costMin:12900,costMax:18000,visaMax:6,setupWeeks:2,activities:['consultancy','trading','tech','media'],tier:'mid',tags:['Best-value Dubai FZ','Fast 1–2 week setup','Flexible activities'],highlight:'Best value Dubai free zone — fast processing, flexible activities, strong banking support.',pros:['Genuine Dubai address','Fast 1–2 week processing','Wide range of activities'],cons:['Less prestige than DMCC'],website:'https://www.ifza.com'},
+  {id:'rakez',name:'RAKEZ',fullName:'Ras Al Khaimah Economic Zone',emirate:'Ras Al Khaimah',costMin:7500,costMax:15000,visaMax:6,setupWeeks:2,activities:['consultancy','trading','manufacturing'],tier:'budget',tags:['Most affordable major FZ','Good banking','Fast setup'],highlight:'Cheapest major free zone with good UAE banking access — ideal for cost-sensitive businesses.',pros:['Lowest cost among major FZs','Strong bank account support','Fast processing'],cons:['RAK address (not Dubai)','Less prestigious'],website:'https://www.rakez.com'},
+  {id:'ajman',name:'Ajman FZ',fullName:'Ajman Free Zone Authority',emirate:'Ajman',costMin:6000,costMax:12000,visaMax:5,setupWeeks:1,activities:['consultancy','trading'],tier:'budget',tags:['Lowest cost in UAE','~1 week setup','Freelancer option'],highlight:'Lowest overall cost in the UAE — ideal for freelancers and small consultancies.',pros:['Cheapest UAE free zone','Fastest setup (~1 week)','Simple process'],cons:['Ajman address','Bank account can be harder','Limited activities'],website:'https://afza.ae'},
+  {id:'dic',name:'Dubai Internet City',fullName:'Dubai Internet City (DIC)',emirate:'Dubai',costMin:25000,costMax:45000,visaMax:6,setupWeeks:4,activities:['tech','consultancy'],tier:'premium',tags:['Tech hub','Google & Microsoft campus','Prestigious'],highlight:'The UAE\'s premier tech address — home to Google, Microsoft, IBM and 1,600+ tech companies.',pros:['Top global tech address','World-class tech community','Strong talent pool'],cons:['Tech activities only','Higher cost','Longer setup'],website:'https://dic.ae'},
+  {id:'dmc',name:'Dubai Media City',fullName:'Dubai Media City (DMC)',emirate:'Dubai',costMin:23000,costMax:42000,visaMax:6,setupWeeks:4,activities:['media','consultancy'],tier:'premium',tags:['Media hub','BBC & Reuters base','Creative community'],highlight:'Premier media free zone — home to BBC, Reuters, CNN and 2,500+ media companies.',pros:['Top global media address','Strong media ecosystem','Creative community'],cons:['Media activities only','Higher cost'],website:'https://dmc.ae'},
+  {id:'difc',name:'DIFC',fullName:'Dubai International Financial Centre',emirate:'Dubai',costMin:40000,costMax:120000,visaMax:10,setupWeeks:6,activities:['financial'],tier:'premium',tags:['Global financial centre','Common law','DFSA regulated'],highlight:'Only option for financial services firms — globally recognised common law jurisdiction.',pros:['Globally recognised','Common law courts','DFSA adds credibility'],cons:['Most expensive','Financial services only','Complex application'],website:'https://www.difc.ae'},
+  {id:'saif',name:'SAIF Zone',fullName:'Sharjah Airport International Free Zone',emirate:'Sharjah',costMin:8500,costMax:20000,visaMax:6,setupWeeks:2,activities:['trading','manufacturing','consultancy'],tier:'budget',tags:['Near Dubai airport','Good for import/export','Budget-friendly'],highlight:'Affordable option near Dubai airport — good for trading and import/export businesses.',pros:['Near Dubai airport','Affordable','Good for trading'],cons:['Sharjah address','Older facilities'],website:'https://www.saif-zone.com'},
+  {id:'creative-city',name:'Fujairah Creative City',fullName:'Fujairah Creative City Free Zone',emirate:'Fujairah',costMin:5750,costMax:15000,visaMax:6,setupWeeks:2,activities:['media','consultancy'],tier:'budget',tags:['Freelancer-friendly','Lowest media cost','Remote-work suitable'],highlight:'Most popular for freelancers and media professionals — affordable with flexible visa options.',pros:['Freelance visa available','Very affordable','Media/creative activities'],cons:['Remote location','Limited banking options'],website:'https://creativecity.ae'},
+  {id:'dso',name:'Dubai Silicon Oasis',fullName:'Dubai Silicon Oasis Authority',emirate:'Dubai',costMin:18000,costMax:32000,visaMax:6,setupWeeks:3,activities:['tech','manufacturing'],tier:'mid',tags:['Tech & R&D hub','Integrated community','Good for hardware'],highlight:'Best for tech hardware, electronics, R&D and semiconductor companies.',pros:['Integrated tech community','Good for R&D','Residential area nearby'],cons:['Away from city centre','Primarily hardware/tech focus'],website:'https://www.dsoa.ae'},
+  {id:'adgm',name:'ADGM',fullName:'Abu Dhabi Global Market',emirate:'Abu Dhabi',costMin:50000,costMax:150000,visaMax:10,setupWeeks:6,activities:['financial'],tier:'premium',tags:['Abu Dhabi financial hub','Common law','FSRA regulated'],highlight:'Abu Dhabi\'s equivalent to DIFC — for financial services firms wanting an Abu Dhabi presence.',pros:['Abu Dhabi government backing','Common law courts','FSRA regulation'],cons:['Very expensive','Financial services only'],website:'https://www.adgm.com'},
+  {id:'jafza',name:'JAFZA',fullName:'Jebel Ali Free Zone',emirate:'Dubai',costMin:30000,costMax:80000,visaMax:6,setupWeeks:4,activities:['manufacturing','trading'],tier:'premium',tags:['World\'s largest FZ','Port access','Warehousing'],highlight:'Best for manufacturing, logistics and large-volume trading requiring port access.',pros:['World\'s largest free zone','Direct port and airport access','Warehousing and logistics'],cons:['Higher cost','Better for large businesses'],website:'https://www.jafza.ae'}
+];
+
+var compareList=[];
+function fmt(n){return 'AED '+n.toLocaleString()}
+function activityMatch(zone,filter){return filter==='all'||zone.activities.includes(filter)}
+
+function renderCards(data){
+  var grid=document.getElementById('zoneGrid');
+  grid.innerHTML=data.map(function(z){
+    var sel=compareList.includes(z.id);
+    return '<div class="zone-card'+(sel?' selected':'')+'" id="zc-'+z.id+'" data-id="'+z.id+'">'+
+      '<div class="zone-card-top">'+
+        '<span class="zone-tier tier-'+z.tier+'">'+z.tier+'</span>'+
+        '<div class="zone-name">'+z.name+'</div>'+
+        '<div class="zone-fullname">'+z.fullName+'</div>'+
+        '<div class="zone-emirate">'+z.emirate+'</div>'+
+      '</div>'+
+      '<div class="zone-cost-row">'+
+        '<div class="zone-cost">'+fmt(z.costMin)+' – '+fmt(z.costMax)+'<small> / year (est.)</small></div>'+
+      '</div>'+
+      '<div class="zone-meta">'+
+        '<div class="meta-cell"><div class="mk">Max Visas</div><div class="mv">Up to '+z.visaMax+'</div></div>'+
+        '<div class="meta-cell"><div class="mk">Setup Time</div><div class="mv">'+(z.setupWeeks<=1?'~1 week':z.setupWeeks+' weeks')+'</div></div>'+
+      '</div>'+
+      '<div class="zone-highlight">'+z.highlight+'</div>'+
+      '<div class="zone-tags">'+z.tags.map(function(t){return '<span class="ztag">'+t+'</span>'}).join('')+'</div>'+
+      '<div class="zone-pros-cons">'+
+        '<div class="zone-pros"><h5>Pros</h5><ul>'+z.pros.map(function(p){return '<li>'+p+'</li>'}).join('')+'</ul></div>'+
+        '<div class="zone-cons"><h5>Cons</h5><ul>'+z.cons.map(function(c){return '<li>'+c+'</li>'}).join('')+'</ul></div>'+
+      '</div>'+
+      '<div class="zone-actions">'+
+        '<button class="btn-compare'+(sel?' active':'')+'" onclick="toggleCompare(\''+z.id+'\')" aria-pressed="'+(sel?'true':'false')+'">'+
+          (sel?'✓ Added':'+ Compare')+
+        '</button>'+
+        '<a href="'+z.website+'" target="_blank" rel="noopener nofollow" class="btn-visit">Visit ↗</a>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+}
+
+function applyFilters(){
+  var emirate=document.getElementById('f-emirate').value;
+  var budget=parseInt(document.getElementById('f-budget').value)||0;
+  var activity=document.getElementById('f-activity').value;
+  var visa=parseInt(document.getElementById('f-visa').value)||0;
+  var filtered=FREE_ZONES.filter(function(z){
+    if(emirate!=='all'&&z.emirate!==emirate)return false;
+    if(budget>0&&budget<999999&&z.costMin>budget)return false;
+    if(!activityMatch(z,activity))return false;
+    if(visa>0&&z.visaMax<visa)return false;
+    return true;
+  });
+  renderCards(filtered);
+  document.getElementById('countDisplay').textContent=filtered.length;
+  var noR=document.getElementById('noResults');
+  var grid=document.getElementById('zoneGrid');
+  noR.style.display=filtered.length===0?'block':'none';
+  grid.style.display=filtered.length===0?'none':'grid';
+}
+
+function resetFilters(){
+  document.getElementById('f-emirate').value='all';
+  document.getElementById('f-budget').value='all';
+  document.getElementById('f-activity').value='all';
+  document.getElementById('f-visa').value='0';
+  applyFilters();
+}
+
+function toggleCompare(id){
+  var idx=compareList.indexOf(id);
+  if(idx>-1){compareList.splice(idx,1)}
+  else{
+    if(compareList.length>=4){alert('You can compare up to 4 free zones at once. Remove one to add another.');return}
+    compareList.push(id);
+  }
+  applyFilters();
+  updateCompareBar();
+}
+
+function updateCompareBar(){
+  var bar=document.getElementById('compareBar');
+  var chips=document.getElementById('compareChips');
+  if(compareList.length===0){bar.classList.remove('visible');return}
+  bar.classList.add('visible');
+  chips.innerHTML=compareList.map(function(id){
+    var z=FREE_ZONES.find(function(f){return f.id===id});
+    return '<div class="compare-chip">'+z.name+' <button class="compare-chip-remove" onclick="toggleCompare(\''+id+'\')" aria-label="Remove '+z.name+'">✕</button></div>';
+  }).join('');
+}
+
+function clearCompare(){compareList=[];applyFilters();updateCompareBar()}
+
+function openCompareModal(){
+  if(compareList.length<2){alert('Select at least 2 free zones to compare.');return}
+  var zones=compareList.map(function(id){return FREE_ZONES.find(function(f){return f.id===id})});
+  var rows=[
+    ['License cost (est.)',function(z){return fmt(z.costMin)+' – '+fmt(z.costMax)+'/yr'}],
+    ['Emirate',function(z){return z.emirate}],
+    ['Tier',function(z){return z.tier.charAt(0).toUpperCase()+z.tier.slice(1)}],
+    ['Max visas',function(z){return 'Up to '+z.visaMax}],
+    ['Setup time',function(z){return z.setupWeeks<=1?'~1 week':z.setupWeeks+' weeks'}],
+    ['Best for',function(z){return z.activities.join(', ')}],
+    ['Highlight',function(z){return z.highlight}]
+  ];
+  var thead='<tr><th>Feature</th>'+zones.map(function(z){return'<th class="zone-col">'+z.name+'</th>'}).join('')+'</tr>';
+  var tbody=rows.map(function(row){
+    return '<tr><td style="font-weight:700;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);white-space:nowrap">'+row[0]+'</td>'+zones.map(function(z){return'<td>'+row[1](z)+'</td>'}).join('')+'</tr>';
+  }).join('');
+  document.getElementById('compareTableWrap').innerHTML='<table class="compare-table"><thead>'+thead+'</thead><tbody>'+tbody+'</tbody></table>';
+  document.getElementById('compareModal').classList.add('visible');
+  document.body.style.overflow='hidden';
+}
+
+function closeCompareModal(){
+  document.getElementById('compareModal').classList.remove('visible');
+  document.body.style.overflow='';
+}
+
+applyFilters();
+</script>
+<script src="/shared/scripts.js" defer></script>
+</body>
+</html>
